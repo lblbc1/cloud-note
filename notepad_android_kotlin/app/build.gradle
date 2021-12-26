@@ -7,7 +7,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
-        applicationId "cn.cxy.demo"
+        applicationId "cn.hsp.demo"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
