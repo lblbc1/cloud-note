@@ -3,8 +3,8 @@ package cn.hsp.demo.ui.activity
 import android.content.Intent
 import cn.hsp.demo.R
 import cn.hsp.demo.base.BaseVmActivity
+import cn.hsp.demo.utils.toast
 import cn.hsp.demo.viewmodel.LoginViewModel
-import com.cxyzy.utils.ext.toast
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.passwordEt
 import kotlinx.android.synthetic.main.activity_login.registerBtn
