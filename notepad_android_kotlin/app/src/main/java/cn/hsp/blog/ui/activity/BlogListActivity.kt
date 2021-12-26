@@ -1,0 +1,59 @@
+package cn.hsp.blog.ui.activity
+
+import android.content.Intent
+import androidx.lifecycle.Observer
+import cn.hsp.blog.R
+import cn.hsp.blog.base.BaseVmActivity
+import cn.hsp.blog.event.RefreshEvent
+import cn.hsp.blog.network.response.Blog
+import cn.hsp.blog.ui.adapter.BlogListAdapter
+import cn.hsp.blog.utils.Constants.EXTRA_KEY_BLOG_ID
+import cn.hsp.blog.utils.Constants.EXTRA_KEY_BLOG_TITLE
+import cn.hsp.blog.viewmodel.BlogListViewModel
+import kotlinx.android.synthetic.main.activity_blog_list.*
+
+class BlogListActivity : BaseVmActivity<BlogListViewModel>() {
+    private val adapter = BlogListAdapter()
+    override fun viewModelClass() = BlogListViewModel::class.java
+    override fun layoutResId(): Int = R.layout.activity_blog_list
+
+    override fun initView() {
+        rv.adapter = adapter
+        adapter.setOnItemClick(this::onItemClick)
+
+        swipeRefreshLayout.setOnRefreshListener {
+            initData()
+        }
+    }
+
+    override fun initData() {
+        mViewModel.getBlogList(
+            onSuccess = {
+                swipeRefreshLayout.isRefreshing = true
+            },
+            onComplete = {
+                swipeRefreshLayout.isRefreshing = false
+            })
+    }
+
+    override fun initListeners() {
+        addIv.setOnClickListener {
+            startActivity(Intent(this, AddBlogActivity::class.java))
+        }
+    }
+    override fun observe() {
+        mViewModel.dataList.observe(this, Observer { adapter.setData(it) })
+    }
+
+    private fun onItemClick(blog: Blog) {
+        val intent = Intent(this, ViewBlogActivity::class.java)
+        intent.putExtra(EXTRA_KEY_BLOG_ID, blog.id)
+        intent.putExtra(EXTRA_KEY_BLOG_TITLE, blog.title)
+        startActivity(intent)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initData()
+    }
+}

@@ -1,0 +1,13 @@
+<view class="page-wrapper ">
+  <view class="blog-title">
+    {{blogTitle}}
+  </view>
+  <scroll-view scroll-y="true" class="blog-content">
+    {{blogContent}}
+  </scroll-view>
+  <view class="blog-bottom-wrapper">
+    <view class="blog-bottom" bindtap="editBlog">
+      修改
+    </view>
+  </view>
+</view>
