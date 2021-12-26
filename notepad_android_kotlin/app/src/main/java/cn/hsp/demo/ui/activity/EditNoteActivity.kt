@@ -4,7 +4,6 @@ import cn.hsp.demo.R
 import cn.hsp.demo.base.BaseVmActivity
 import cn.hsp.demo.utils.Constants.EXTRA_KEY_NOTE_CONTENT
 import cn.hsp.demo.utils.Constants.EXTRA_KEY_NOTE_ID
-import cn.hsp.demo.utils.Constants.EXTRA_KEY_NOTE_TITLE
 import cn.hsp.demo.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.activity_edit_note.*
 
@@ -21,9 +20,7 @@ class EditNoteActivity : BaseVmActivity<NoteViewModel>() {
 
     override fun initView() {
         noteId = intent.getLongExtra(EXTRA_KEY_NOTE_ID, 0L)
-        val title = intent.getStringExtra(EXTRA_KEY_NOTE_TITLE)
         val content = intent.getStringExtra(EXTRA_KEY_NOTE_CONTENT)
-        titleEt.setText(title)
         contentEt.setText(content)
         initToolbar()
     }
@@ -40,7 +37,7 @@ class EditNoteActivity : BaseVmActivity<NoteViewModel>() {
     }
 
     private fun saveData() {
-        mViewModel.modifyData(noteId, titleEt.text.toString(), contentEt.text.toString())
+        mViewModel.modifyData(noteId,contentEt.text.toString())
         finish()
     }
 }

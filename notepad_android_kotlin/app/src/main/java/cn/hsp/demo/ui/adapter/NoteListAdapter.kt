@@ -25,7 +25,7 @@ class NoteListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val data = dataList[position]
-        holder.itemView.textView.text = data.title
+        holder.itemView.textView.text = data.content
         holder.itemView.setOnClickListener { onItemClick(data) }
     }
 

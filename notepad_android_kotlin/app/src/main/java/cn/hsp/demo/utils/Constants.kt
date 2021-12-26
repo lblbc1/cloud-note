@@ -11,6 +11,5 @@ object Constants {
     const val SP_KEY_TOKEN = "token"
     const val SP_KEY_USER_ID = "user_id"
     const val EXTRA_KEY_NOTE_ID = "note_id"
-    const val EXTRA_KEY_NOTE_TITLE = "note_title"
     const val EXTRA_KEY_NOTE_CONTENT = "note_content"
 }

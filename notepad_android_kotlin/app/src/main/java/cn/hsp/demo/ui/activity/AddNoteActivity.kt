@@ -31,7 +31,7 @@ class AddNoteActivity : BaseVmActivity<NoteViewModel>() {
     }
 
     private fun saveData() {
-        mViewModel.addData(titleEt.text.toString(), contentEt.text.toString())
+        mViewModel.addData(contentEt.text.toString())
         finish()
     }
 }

@@ -17,12 +17,10 @@ class RegisterRequest(
 )
 
 class AddNoteRequest(
-    val title: String = "",
     val content: String = ""
 )
 
 class ModifyNoteRequest(
     val id: Long = 0,
-    val title: String = "",
     val content: String = ""
 )

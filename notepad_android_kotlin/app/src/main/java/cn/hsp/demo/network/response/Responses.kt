@@ -8,7 +8,6 @@ package cn.hsp.demo.network.response
 
 data class Note(
     var id: Long = 0,
-    var title: String = "",
     var content: String = ""
 )
 

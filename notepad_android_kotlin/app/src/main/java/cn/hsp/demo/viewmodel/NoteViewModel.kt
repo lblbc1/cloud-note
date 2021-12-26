@@ -31,7 +31,6 @@ class NoteViewModel : BaseViewModel() {
 
 
     fun addData(
-        title: String,
         content: String,
         onSuccess: (() -> Unit)? = null,
         onFailure: ((msg: String) -> Unit)? = null,
@@ -39,7 +38,7 @@ class NoteViewModel : BaseViewModel() {
     ) {
         launch(
             {
-                repo.addData(title, content)
+                repo.addData(content)
                 onSuccess?.invoke()
             },
             { onFailure?.invoke(it.message ?: "") },
@@ -48,7 +47,6 @@ class NoteViewModel : BaseViewModel() {
 
     fun modifyData(
         id: Long,
-        title: String,
         content: String,
         onSuccess: (() -> Unit)? = null,
         onFailure: ((msg: String) -> Unit)? = null,
@@ -56,7 +54,7 @@ class NoteViewModel : BaseViewModel() {
     ) {
         launch(
             {
-                repo.modifyData(id, title, content)
+                repo.modifyData(id, content)
                 onSuccess?.invoke()
             },
             { onFailure?.invoke(it.message ?: "") },
