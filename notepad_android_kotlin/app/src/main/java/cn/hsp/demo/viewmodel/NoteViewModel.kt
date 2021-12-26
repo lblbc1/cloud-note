@@ -2,17 +2,17 @@ package cn.hsp.demo.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import cn.hsp.demo.base.BaseViewModel
-import cn.hsp.demo.network.BlogRepo
-import cn.hsp.demo.network.response.Blog
+import cn.hsp.demo.network.NoteRepo
+import cn.hsp.demo.network.response.Note
 /**
  * 厦门大学计算机专业 | 前华为工程师
  * 专注《零基础学编程系列》https://cxyxy.blog.csdn.net/article/details/121134634
  * 包含：Java | 安卓 | 前端 | Flutter | iOS | 小程序 | 鸿蒙
  * 公众号：花生皮编程
  */
-class BlogViewModel : BaseViewModel() {
-    private val blogListRepo by lazy { BlogRepo() }
-    val blog: MutableLiveData<Blog> = MutableLiveData()
+class NoteViewModel : BaseViewModel() {
+    private val blogListRepo by lazy { NoteRepo() }
+    val note: MutableLiveData<Note> = MutableLiveData()
 
     fun getBlog(
         blogId: Long,
@@ -22,7 +22,7 @@ class BlogViewModel : BaseViewModel() {
     ) {
         launch(
             {
-                blog.value = blogListRepo.getBlog(blogId)?.data
+                note.value = blogListRepo.queryData(blogId)?.data
                 onSuccess?.invoke()
             },
             { onFailure?.invoke(it.message ?: "") },
@@ -30,7 +30,7 @@ class BlogViewModel : BaseViewModel() {
     }
 
 
-    fun addBlog(
+    fun addData(
         title: String,
         content: String,
         onSuccess: (() -> Unit)? = null,
@@ -39,7 +39,7 @@ class BlogViewModel : BaseViewModel() {
     ) {
         launch(
             {
-                blogListRepo.addBlog(title, content)
+                blogListRepo.addData(title, content)
                 onSuccess?.invoke()
             },
             { onFailure?.invoke(it.message ?: "") },
@@ -56,7 +56,7 @@ class BlogViewModel : BaseViewModel() {
     ) {
         launch(
             {
-                blogListRepo.modifyBlog(id, title, content)
+                blogListRepo.modifyData(id, title, content)
                 onSuccess?.invoke()
             },
             { onFailure?.invoke(it.message ?: "") },
@@ -71,7 +71,7 @@ class BlogViewModel : BaseViewModel() {
     ) {
         launch(
             {
-                blogListRepo.delBlog(blogId)
+                blogListRepo.deleteData(blogId)
                 onSuccess?.invoke()
             },
             { onFailure?.invoke(it.message ?: "") },

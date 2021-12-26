@@ -19,7 +19,7 @@ class SplashActivity : BaseActivity() {
         GlobalScope.launch(Dispatchers.IO) {
             delay(500)
             if (isLoggedIn()) {
-                startActivity(Intent(this@SplashActivity, BlogListActivity::class.java))
+                startActivity(Intent(this@SplashActivity, NoteListActivity::class.java))
             } else {
                 startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
             }

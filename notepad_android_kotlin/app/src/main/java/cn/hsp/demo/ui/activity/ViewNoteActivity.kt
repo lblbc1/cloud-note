@@ -4,26 +4,27 @@ import android.content.Intent
 import androidx.lifecycle.Observer
 import cn.hsp.demo.R
 import cn.hsp.demo.base.BaseVmActivity
-import cn.hsp.demo.network.response.Blog
-import cn.hsp.demo.utils.Constants.EXTRA_KEY_BLOG_CONTENT
-import cn.hsp.demo.utils.Constants.EXTRA_KEY_BLOG_ID
-import cn.hsp.demo.utils.Constants.EXTRA_KEY_BLOG_TITLE
-import cn.hsp.demo.viewmodel.BlogViewModel
-import kotlinx.android.synthetic.main.activity_view_blog.*
+import cn.hsp.demo.network.response.Note
+import cn.hsp.demo.utils.Constants.EXTRA_KEY_NOTE_CONTENT
+import cn.hsp.demo.utils.Constants.EXTRA_KEY_NOTE_ID
+import cn.hsp.demo.utils.Constants.EXTRA_KEY_NOTE_TITLE
+import cn.hsp.demo.viewmodel.NoteViewModel
+import kotlinx.android.synthetic.main.activity_view_note.*
+
 /**
  * 厦门大学计算机专业 | 前华为工程师
  * 专注《零基础学编程系列》https://cxyxy.blog.csdn.net/article/details/121134634
  * 包含：Java | 安卓 | 前端 | Flutter | iOS | 小程序 | 鸿蒙
  * 公众号：花生皮编程
  */
-class ViewBlogActivity : BaseVmActivity<BlogViewModel>() {
+class ViewNoteActivity : BaseVmActivity<NoteViewModel>() {
     private var blogId = 0L
-    private var blog: Blog? = null
-    override fun viewModelClass() = BlogViewModel::class.java
-    override fun layoutResId(): Int = R.layout.activity_view_blog
+    private var note: Note? = null
+    override fun viewModelClass() = NoteViewModel::class.java
+    override fun layoutResId(): Int = R.layout.activity_view_note
 
     override fun initView() {
-        blogId = intent.getLongExtra(EXTRA_KEY_BLOG_ID, 0L)
+        blogId = intent.getLongExtra(EXTRA_KEY_NOTE_ID, 0L)
         initToolbar()
     }
 
@@ -45,10 +46,10 @@ class ViewBlogActivity : BaseVmActivity<BlogViewModel>() {
     }
 
     private fun gotoModifyBlogPage() {
-        val intent = Intent(this, EditBlogActivity::class.java)
-        intent.putExtra(EXTRA_KEY_BLOG_ID, blog?.id)
-        intent.putExtra(EXTRA_KEY_BLOG_TITLE, blog?.title)
-        intent.putExtra(EXTRA_KEY_BLOG_CONTENT, blog?.content)
+        val intent = Intent(this, EditNoteActivity::class.java)
+        intent.putExtra(EXTRA_KEY_NOTE_ID, note?.id)
+        intent.putExtra(EXTRA_KEY_NOTE_TITLE, note?.title)
+        intent.putExtra(EXTRA_KEY_NOTE_CONTENT, note?.content)
         startActivity(intent)
     }
 
@@ -57,8 +58,8 @@ class ViewBlogActivity : BaseVmActivity<BlogViewModel>() {
     }
 
     override fun observe() {
-        mViewModel.blog.observe(this, Observer {
-            blog = it
+        mViewModel.note.observe(this, Observer {
+            note = it
             titleEt.text = it.title
             contentEt.text = it.content
         }

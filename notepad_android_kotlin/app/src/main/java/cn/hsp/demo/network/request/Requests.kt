@@ -16,12 +16,12 @@ class RegisterRequest(
     val password: String = ""
 )
 
-class AddBlogRequest(
+class AddNoteRequest(
     val title: String = "",
     val content: String = ""
 )
 
-class ModifyBlogRequest(
+class ModifyNoteRequest(
     val id: Long = 0,
     val title: String = "",
     val content: String = ""

@@ -2,8 +2,8 @@ package cn.hsp.demo.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import cn.hsp.demo.base.BaseViewModel
-import cn.hsp.demo.network.BlogRepo
-import cn.hsp.demo.network.response.Blog
+import cn.hsp.demo.network.NoteRepo
+import cn.hsp.demo.network.response.Note
 import cn.hsp.demo.utils.Constants.SP_KEY_USER_ID
 import cn.hsp.demo.utils.SpUtil
 /**
@@ -12,9 +12,9 @@ import cn.hsp.demo.utils.SpUtil
  * 包含：Java | 安卓 | 前端 | Flutter | iOS | 小程序 | 鸿蒙
  * 公众号：花生皮编程
  */
-class BlogListViewModel : BaseViewModel() {
-    private val blogListRepo by lazy { BlogRepo() }
-    val dataList: MutableLiveData<List<Blog>> = MutableLiveData()
+class NoteListViewModel : BaseViewModel() {
+    private val blogListRepo by lazy { NoteRepo() }
+    val dataList: MutableLiveData<List<Note>> = MutableLiveData()
 
     fun getBlogList(
         onSuccess: (() -> Unit)? = null,
@@ -24,7 +24,7 @@ class BlogListViewModel : BaseViewModel() {
         launch(
             {
                 val userId = SpUtil.get(SP_KEY_USER_ID, 0L)
-                dataList.value = blogListRepo.getBlogList(userId)?.data
+                dataList.value = blogListRepo.getDataList(userId)?.data
                 onSuccess?.invoke()
             },
             { onFailure?.invoke(it.message ?: "") },

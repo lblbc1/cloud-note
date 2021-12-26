@@ -25,12 +25,12 @@
         </activity>
         <activity android:name="cn.hsp.demo.ui.activity.LoginActivity" />
         <activity
-            android:name="cn.hsp.demo.ui.activity.BlogListActivity"
-            android:theme="@style/BlogListTheme" />
-        <activity android:name="cn.hsp.demo.ui.activity.ViewBlogActivity" />
-        <activity android:name="cn.hsp.demo.ui.activity.EditBlogActivity" />
+            android:name="cn.hsp.demo.ui.activity.NoteListActivity"
+            android:theme="@style/NotepadTheme" />
+        <activity android:name="cn.hsp.demo.ui.activity.ViewNoteActivity" />
+        <activity android:name="cn.hsp.demo.ui.activity.EditNoteActivity" />
         <activity android:name="cn.hsp.demo.ui.activity.RegisterActivity" />
-        <activity android:name="cn.hsp.demo.ui.activity.AddBlogActivity" />
+        <activity android:name="cn.hsp.demo.ui.activity.AddNoteActivity" />
     </application>
 
 </manifest>

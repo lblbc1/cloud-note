@@ -7,22 +7,22 @@
 package cn.hsp.demo.network
 
 import cn.hsp.demo.base.BaseRepository
-import cn.hsp.demo.network.request.AddBlogRequest
+import cn.hsp.demo.network.request.AddNoteRequest
 import cn.hsp.demo.network.request.LoginRequest
-import cn.hsp.demo.network.request.ModifyBlogRequest
+import cn.hsp.demo.network.request.ModifyNoteRequest
 import cn.hsp.demo.network.request.RegisterRequest
 
-class BlogRepo : BaseRepository() {
-    suspend fun getBlogList(userId: Long) = apiService.getBlogList(userId)
-    suspend fun getBlog(blogId: Long) = apiService.getBlog(blogId)
-    suspend fun addBlog(title: String, content: String) =
-        apiService.addBlog(AddBlogRequest(title, content))
+class NoteRepo : BaseRepository() {
+    suspend fun getDataList(userId: Long) = apiService.getDataList(userId)
+    suspend fun queryData(noteId: Long) = apiService.queryData(noteId)
+    suspend fun addData(title: String, content: String) =
+        apiService.addData(AddNoteRequest(title, content))
 
-    suspend fun modifyBlog(id: Long, title: String, content: String) = apiService.modifyBlog(
-        ModifyBlogRequest(id, title, content)
+    suspend fun modifyData(id: Long, title: String, content: String) = apiService.modifyData(
+        ModifyNoteRequest(id, title, content)
     )
 
-    suspend fun delBlog(blogId: Long) = apiService.delBlog(blogId)
+    suspend fun deleteData(noteId: Long) = apiService.deleteData(noteId)
     suspend fun login(userName: String, password: String) =
         apiService.login(LoginRequest(userName, password))
 

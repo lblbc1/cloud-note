@@ -6,11 +6,11 @@
  */
 package cn.hsp.demo.network
 
-import cn.hsp.demo.network.request.AddBlogRequest
+import cn.hsp.demo.network.request.AddNoteRequest
 import cn.hsp.demo.network.request.LoginRequest
-import cn.hsp.demo.network.request.ModifyBlogRequest
+import cn.hsp.demo.network.request.ModifyNoteRequest
 import cn.hsp.demo.network.request.RegisterRequest
-import cn.hsp.demo.network.response.Blog
+import cn.hsp.demo.network.response.Note
 import cn.hsp.demo.network.response.LoginResp
 import cn.hsp.demo.network.response.RegisterResp
 import cn.hsp.demo.network.response.Result
@@ -28,19 +28,19 @@ interface ApiService {
 
     @GET("blog/api/list/{userId}")
     @Headers("ignoreToken:true")
-    suspend fun getBlogList(@Path("userId") userId: Long): Result<List<Blog>?>?
+    suspend fun getDataList(@Path("userId") userId: Long): Result<List<Note>?>?
 
     @GET("blog/api/query/{blogId}")
-    suspend fun getBlog(@Path("blogId") blogId: Long): Result<Blog?>?
+    suspend fun queryData(@Path("blogId") blogId: Long): Result<Note?>?
 
     @GET("blog/api/del/{blogId}")
-    suspend fun delBlog(@Path("blogId") blogId: Long): Result<String?>?
+    suspend fun deleteData(@Path("blogId") blogId: Long): Result<String?>?
 
     @POST("blog/api/add")
-    suspend fun addBlog(@Body request: AddBlogRequest): Result<String?>?
+    suspend fun addData(@Body request: AddNoteRequest): Result<String?>?
 
     @POST("blog/api/modify")
-    suspend fun modifyBlog(@Body request: ModifyBlogRequest): Result<String?>?
+    suspend fun modifyData(@Body request: ModifyNoteRequest): Result<String?>?
 
 
 //    @GET("/article/list/{page}/json")

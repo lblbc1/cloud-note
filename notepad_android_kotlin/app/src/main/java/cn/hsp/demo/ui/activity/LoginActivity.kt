@@ -22,7 +22,7 @@ class LoginActivity : BaseVmActivity<LoginViewModel>() {
                 userNameEt.text.toString(),
                 passwordEt.text.toString(),
                 onSuccess = {
-                    startActivity(Intent(this@LoginActivity, BlogListActivity::class.java))
+                    startActivity(Intent(this@LoginActivity, NoteListActivity::class.java))
                 },
                 onFailure = {
                     toast(it)

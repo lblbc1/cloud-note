@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="BlogListTheme" parent="AppTheme">
+    <style name="NotepadTheme" parent="AppTheme">
         <item name="windowNoTitle">false</item>
     </style>
 </resources>
