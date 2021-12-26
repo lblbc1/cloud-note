@@ -7,7 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import cn.hsp.blog.R
 import cn.hsp.blog.network.response.Blog
 import kotlinx.android.synthetic.main.item_blog.view.*
-
+/**
+ * 厦门大学计算机专业 | 前华为工程师
+ * 专注《零基础学编程系列》https://cxyxy.blog.csdn.net/article/details/121134634
+ * 包含：Java | 安卓 | 前端 | Flutter | iOS | 小程序 | 鸿蒙
+ * 公众号：花生皮编程
+ */
 class BlogListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private lateinit var onItemClick: (Blog: Blog) -> Unit
     private var dataList = mutableListOf<Blog>()
