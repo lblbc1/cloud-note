@@ -1,8 +1,7 @@
 package cn.hsp.service;
 
-import cn.hsp.bean.Blog;
-import cn.hsp.login.service.AuthService;
-import cn.hsp.mapper.BlogMapper;
+import cn.hsp.bean.Note;
+import cn.hsp.mapper.NoteMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,27 +14,27 @@ import java.util.List;
  * 公众号：花生皮编程
  */
 @Service
-public class BlogService {
+public class NoteService {
     @Autowired
-    private BlogMapper blogMapper;
+    private NoteMapper noteMapper;
 
-    public Blog query(long blogId) {
-        return blogMapper.query(blogId);
+    public Note query(long noteId) {
+        return noteMapper.query(noteId);
     }
 
     public void add(long userId,String title, String content) {
-        blogMapper.add(userId, title, content);
+        noteMapper.add(userId, title, content);
     }
 
     public void modify(long id, String title, String content) {
-        blogMapper.modify(id, title, content);
+        noteMapper.modify(id, title, content);
     }
 
-    public void del(long id) {
-        blogMapper.del(id);
+    public void delete(long id) {
+        noteMapper.del(id);
     }
 
-    public List<Blog> queryByUserId(long userId) {
-        return blogMapper.queryByUserId(userId);
+    public List<Note> queryByUserId(long userId) {
+        return noteMapper.queryByUserId(userId);
     }
 }

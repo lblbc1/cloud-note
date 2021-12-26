@@ -1,6 +1,6 @@
 package cn.hsp.mapper;
 
-import cn.hsp.bean.Blog;
+import cn.hsp.bean.Note;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
@@ -11,19 +11,19 @@ import java.util.List;
  * 编程学习资料及开源项目见：https://juejin.cn/post/7002792005688360968
  */
 @Repository
-public interface BlogMapper {
-    @Select(value = "select * from blog where id = #{blogId}")
-    Blog query(@Param("blogId") long blogId);
+public interface NoteMapper {
+    @Select(value = "select * from note where id = #{id}")
+    Note query(@Param("id") long id);
 
-    @Select(value = "select * from blog where userId = #{userId} order by lastUpdateTime desc")
-    List<Blog> queryByUserId(@Param("userId") long userId);
+    @Select(value = "select * from note where userId = #{userId} order by lastUpdateTime desc")
+    List<Note> queryByUserId(@Param("userId") long userId);
 
-    @Insert(value = "insert into blog(userId,title,content) values (#{userId}, #{title}, #{content})")
+    @Insert(value = "insert into note(userId,title,content) values (#{userId}, #{title}, #{content})")
     void add(@Param("userId") long userId, @Param("title") String title, @Param("content") String content);
 
-    @Update(value = "update blog set title=#{title},content=#{content},lastUpdateTime=now() where id = #{id}")
+    @Update(value = "update note set title=#{title},content=#{content},lastUpdateTime=now() where id = #{id}")
     void modify(@Param("id") long id, @Param("title") String title, @Param("content") String content);
 
-    @Delete("delete from blog where id = #{id}")
+    @Delete("delete from note where id = #{id}")
     void del(@Param("id") long id);
 }

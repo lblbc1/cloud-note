@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  * 公众号：花生皮编程
  */
 @Data
-public class Blog {
+public class Note {
     private Long id;
     private String title;
     private String content;

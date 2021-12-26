@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @MapperScan({"cn.hsp.mapper","cn.hsp.login.mapper"}) //扫描的mapper
 @SpringBootApplication
-public class HspBlogApplication {
+public class HspNoteApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HspBlogApplication.class, args);
+		SpringApplication.run(HspNoteApplication.class, args);
 	}
 }
