@@ -22,12 +22,12 @@ public class NoteService {
         return noteMapper.query(noteId);
     }
 
-    public void add(long userId,String title, String content) {
-        noteMapper.add(userId, title, content);
+    public void add(long userId, String content) {
+        noteMapper.add(userId, content);
     }
 
-    public void modify(long id, String title, String content) {
-        noteMapper.modify(id, title, content);
+    public void modify(long id, String content) {
+        noteMapper.modify(id, content);
     }
 
     public void delete(long id) {

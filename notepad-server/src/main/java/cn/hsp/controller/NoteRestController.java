@@ -33,13 +33,13 @@ public class NoteRestController {
             String token = authorization.substring(authTokenPrefix.length());
             userId = jwtUtils.getUserIdFromToken(token);
         }
-        noteService.add(userId, note.getTitle(), note.getContent());
+        noteService.add(userId, note.getContent());
         return new Resp<>();
     }
 
     @PostMapping(value = "api/modify")
     public Resp<String> modifyData(@RequestBody Note note) {
-        noteService.modify(note.getId(), note.getTitle(), note.getContent());
+        noteService.modify(note.getId(), note.getContent());
         return new Resp<>();
     }
 
