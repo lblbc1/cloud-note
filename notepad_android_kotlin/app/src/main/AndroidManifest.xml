@@ -16,21 +16,20 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
 
-        <activity android:name="cn.hsp.demo.ui.activity.SplashActivity">
+        <activity android:name=".ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="cn.hsp.demo.ui.activity.LoginActivity" />
+        <activity android:name=".ui.activity.LoginActivity" />
         <activity
-            android:name="cn.hsp.demo.ui.activity.NoteListActivity"
+            android:name=".ui.activity.NoteListActivity"
             android:theme="@style/NotepadTheme" />
-        <activity android:name="cn.hsp.demo.ui.activity.ViewNoteActivity" />
-        <activity android:name="cn.hsp.demo.ui.activity.EditNoteActivity" />
-        <activity android:name="cn.hsp.demo.ui.activity.RegisterActivity" />
-        <activity android:name="cn.hsp.demo.ui.activity.AddNoteActivity" />
+        <activity android:name=".ui.activity.EditNoteActivity" />
+        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.AddNoteActivity" />
     </application>
 
 </manifest>

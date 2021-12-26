@@ -6,6 +6,7 @@ import cn.hsp.demo.R
 import cn.hsp.demo.base.BaseVmActivity
 import cn.hsp.demo.network.response.Note
 import cn.hsp.demo.ui.adapter.NoteListAdapter
+import cn.hsp.demo.utils.Constants
 import cn.hsp.demo.utils.Constants.EXTRA_KEY_NOTE_ID
 import cn.hsp.demo.utils.Constants.EXTRA_KEY_NOTE_TITLE
 import cn.hsp.demo.viewmodel.NoteListViewModel
@@ -51,9 +52,10 @@ class NoteListActivity : BaseVmActivity<NoteListViewModel>() {
     }
 
     private fun onItemClick(note: Note) {
-        val intent = Intent(this, ViewNoteActivity::class.java)
+        val intent = Intent(this, EditNoteActivity::class.java)
         intent.putExtra(EXTRA_KEY_NOTE_ID, note.id)
         intent.putExtra(EXTRA_KEY_NOTE_TITLE, note.title)
+        intent.putExtra(Constants.EXTRA_KEY_NOTE_CONTENT, note.content)
         startActivity(intent)
     }
 
