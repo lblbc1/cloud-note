@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:note_flutter/network/http_managerart';
+import 'package:note_flutter/network/http_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../app_strings.dart';
@@ -19,7 +19,7 @@ class NoteListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '花生皮博客',
+      title: '记事本-花生皮编程',
       home: NoteListWidget(this.parentContext),
     );
   }

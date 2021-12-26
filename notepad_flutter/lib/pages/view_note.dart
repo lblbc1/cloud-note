@@ -18,7 +18,6 @@ class ViewNotePage extends StatefulWidget {
 }
 
 class _ViewNotePageState extends State<ViewNotePage> {
-  String title = "";
   String content = "";
   int _noteId = 0;
 
@@ -38,7 +37,6 @@ class _ViewNotePageState extends State<ViewNotePage> {
       Map<String, dynamic> result = new Map<String, dynamic>.from(resp);
       setState(() {
         var data = result['data'];
-        title = data['title'];
         content = data['content'];
       });
     });
@@ -66,10 +64,6 @@ class _ViewNotePageState extends State<ViewNotePage> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text(
-          title,
-          style: TextStyle(fontSize: 20),
-        ),
         Expanded(child: Text(content)),
         ElevatedButton(
           child: Text("修改"),

@@ -15,8 +15,6 @@ class AddNotePage extends StatefulWidget {
 
 class _AddNotePageState extends State<AddNotePage> {
   TextEditingController _contentController = TextEditingController();
-  TextEditingController _titleController = TextEditingController();
-  String title = "";
   String content = "";
 
   @override
@@ -42,13 +40,6 @@ class _AddNotePageState extends State<AddNotePage> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        TextField(
-          style: TextStyle(fontSize: 20),
-          decoration: InputDecoration(
-            hintText: "请输入标题",
-          ),
-          controller: _titleController,
-        ),
         Expanded(
             child: TextField(
           keyboardType: TextInputType.multiline,
@@ -70,9 +61,8 @@ class _AddNotePageState extends State<AddNotePage> {
 
   addNote() async {
     String url = "note/api/add";
-    String title = _titleController.text;
     String content = _contentController.text;
-    HttpManager.getInstance().post(url, data: {"title": title, "content": content}).then((resp) {
+    HttpManager.getInstance().post(url, data: {"content": content}).then((resp) {
       Navigator.pop(context);
     });
   }

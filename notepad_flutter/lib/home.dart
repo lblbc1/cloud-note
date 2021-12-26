@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app_strings.dart';
-import 'pages/blog_list.dart';
+import 'pages/note_list.dart';
 import 'pages/login.dart';
 import 'pages/mine.dart';
 
@@ -24,7 +24,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   initState() {
     super.initState();
     list
-      ..add(BlogListPage(context))
+      ..add(NoteListPage(context))
       ..add(MinePage());
     checkLogin();
   }

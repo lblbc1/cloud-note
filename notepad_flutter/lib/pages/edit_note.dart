@@ -1,6 +1,6 @@
-import 'package:note_flutter/network/http_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:note_flutter/network/http_manager.dart';
 
 /// 厦门大学计算机专业 | 前华为工程师
 /// 分享编程技术，没啥深度，但看得懂，适合初学者。
@@ -16,11 +16,9 @@ class EditNotePage extends StatefulWidget {
 }
 
 class _EditNotePageState extends State<EditNotePage> {
-  String title = "";
   String content = "";
   int _noteId = 0;
 
-  TextEditingController _titleController = TextEditingController();
   TextEditingController _contentController = TextEditingController();
 
   _EditNotePageState(int noteId) {
@@ -39,9 +37,7 @@ class _EditNotePageState extends State<EditNotePage> {
       Map<String, dynamic> result = new Map<String, dynamic>.from(resp);
       setState(() {
         var data = result['data'];
-        title = data['title'];
         content = data['content'];
-        _titleController.text = title;
         _contentController.text = content;
       });
     });
@@ -69,24 +65,17 @@ class _EditNotePageState extends State<EditNotePage> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        TextField(
-          style: TextStyle(fontSize: 20),
-          decoration: InputDecoration(
-            hintText: "请输入标题",
-          ),
-          controller: _titleController,
-        ),
         Expanded(
             child: TextField(
           keyboardType: TextInputType.multiline,
           maxLines: 10,
           decoration: InputDecoration(
-            hintText: "请输入正文",
+            hintText: "请输入内容",
           ),
           controller: _contentController,
         )),
         ElevatedButton(
-          child: Text("发布"),
+          child: Text("保存"),
           onPressed: () {
             modifyNote();
           },
@@ -97,9 +86,8 @@ class _EditNotePageState extends State<EditNotePage> {
 
   modifyNote() async {
     String url = "note/api/modify";
-    String title = _titleController.text;
     String content = _contentController.text;
-    HttpManager.getInstance().post(url, data: {"id": widget.noteId, "title": title, "content": content}).then((resp) {
+    HttpManager.getInstance().post(url, data: {"id": widget.noteId, "content": content}).then((resp) {
       Navigator.of(context).popUntil((route) => route.isFirst); //回到首页
     });
   }

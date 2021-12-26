@@ -1,4 +1,4 @@
-# blog
+# note
 Flutter博客
 
 # 关于我

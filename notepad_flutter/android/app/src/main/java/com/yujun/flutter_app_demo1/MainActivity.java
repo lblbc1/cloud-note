@@ -1,4 +1,4 @@
-package cn.hsp.blog;
+package cn.hsp.note;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
