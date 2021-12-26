@@ -31,6 +31,7 @@ class EditNoteActivity : BaseVmActivity<NoteViewModel>() {
         toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.action_save -> saveData()
+                R.id.action_del -> deleteData()
             }
             false
         }
@@ -38,6 +39,11 @@ class EditNoteActivity : BaseVmActivity<NoteViewModel>() {
 
     private fun saveData() {
         mViewModel.modifyData(noteId,contentEt.text.toString())
+        finish()
+    }
+
+    private fun deleteData() {
+        mViewModel.deleteData(noteId)
         finish()
     }
 }

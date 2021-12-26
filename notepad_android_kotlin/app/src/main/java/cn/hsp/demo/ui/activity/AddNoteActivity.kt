@@ -3,7 +3,7 @@ package cn.hsp.demo.ui.activity
 import cn.hsp.demo.R
 import cn.hsp.demo.base.BaseVmActivity
 import cn.hsp.demo.viewmodel.NoteViewModel
-import kotlinx.android.synthetic.main.activity_add_note.*
+import kotlinx.android.synthetic.main.activity_edit_note.*
 
 /**
  * 厦门大学计算机专业 | 前华为工程师
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_add_note.*
  */
 class AddNoteActivity : BaseVmActivity<NoteViewModel>() {
     override fun viewModelClass() = NoteViewModel::class.java
-    override fun layoutResId(): Int = R.layout.activity_add_note
+    override fun layoutResId(): Int = R.layout.activity_edit_note
 
     override fun initView() {
         initToolbar()
