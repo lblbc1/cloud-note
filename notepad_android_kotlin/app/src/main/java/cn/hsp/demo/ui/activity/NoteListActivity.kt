@@ -2,6 +2,7 @@ package cn.hsp.demo.ui.activity
 
 import android.content.Intent
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import cn.hsp.demo.R
 import cn.hsp.demo.base.BaseVmActivity
 import cn.hsp.demo.network.response.Note
@@ -23,7 +24,9 @@ class NoteListActivity : BaseVmActivity<NoteListViewModel>() {
     override fun layoutResId(): Int = R.layout.activity_note_list
 
     override fun initView() {
-        rv.adapter = adapter
+        recyclerView.adapter = adapter
+        //添加安卓自带的分割线
+        recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         adapter.setOnItemClick(this::onItemClick)
 
         swipeRefreshLayout.setOnRefreshListener {
