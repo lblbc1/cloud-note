@@ -12,7 +12,7 @@ import cn.hsp.demo.utils.SpUtil
  * 公众号：花生皮编程
  */
 class LoginViewModel : BaseViewModel() {
-    private val blogRepo by lazy { NoteRepo() }
+    private val repo by lazy { NoteRepo() }
 
     fun login(
         userName: String, password: String,
@@ -22,7 +22,7 @@ class LoginViewModel : BaseViewModel() {
     ) {
         launch(
             {
-                val resp = blogRepo.login(userName, password)
+                val resp = repo.login(userName, password)
                 if (resp?.isSuccess() == true) {
                     SpUtil.put(SP_KEY_TOKEN, resp?.data?.token ?: "")
                     SpUtil.put(SP_KEY_USER_ID, resp?.data?.id ?: 0L)
@@ -43,7 +43,7 @@ class LoginViewModel : BaseViewModel() {
     ) {
         launch(
             {
-                val resp = blogRepo.register(userName, password)
+                val resp = repo.register(userName, password)
                 if (resp?.isSuccess() == true) {
                     onSuccess?.invoke()
                 } else {

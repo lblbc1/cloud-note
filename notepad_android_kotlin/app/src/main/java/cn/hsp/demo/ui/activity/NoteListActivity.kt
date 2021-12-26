@@ -32,7 +32,7 @@ class NoteListActivity : BaseVmActivity<NoteListViewModel>() {
     }
 
     override fun initData() {
-        mViewModel.getBlogList(
+        mViewModel.queryDataList(
             onSuccess = {
                 swipeRefreshLayout.isRefreshing = true
             },

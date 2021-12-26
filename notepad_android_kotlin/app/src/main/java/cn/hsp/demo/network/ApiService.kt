@@ -26,20 +26,20 @@ interface ApiService {
     @Headers("ignoreToken:true")
     suspend fun register(@Body request: RegisterRequest): Result<RegisterResp?>?
 
-    @GET("blog/api/list/{userId}")
+    @GET("note/api/list/{userId}")
     @Headers("ignoreToken:true")
     suspend fun getDataList(@Path("userId") userId: Long): Result<List<Note>?>?
 
-    @GET("blog/api/query/{blogId}")
-    suspend fun queryData(@Path("blogId") blogId: Long): Result<Note?>?
+    @GET("note/api/query/{noteId}")
+    suspend fun queryData(@Path("noteId") noteId: Long): Result<Note?>?
 
-    @GET("blog/api/del/{blogId}")
-    suspend fun deleteData(@Path("blogId") blogId: Long): Result<String?>?
+    @GET("note/api/del/{noteId}")
+    suspend fun deleteData(@Path("noteId") noteId: Long): Result<String?>?
 
-    @POST("blog/api/add")
+    @POST("note/api/add")
     suspend fun addData(@Body request: AddNoteRequest): Result<String?>?
 
-    @POST("blog/api/modify")
+    @POST("note/api/modify")
     suspend fun modifyData(@Body request: ModifyNoteRequest): Result<String?>?
 
 

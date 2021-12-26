@@ -15,32 +15,32 @@ import kotlinx.android.synthetic.main.activity_edit_note.*
  * 公众号：花生皮编程
  */
 class EditNoteActivity : BaseVmActivity<NoteViewModel>() {
-    private var blogId = 0L
+    private var noteId = 0L
     override fun viewModelClass() = NoteViewModel::class.java
     override fun layoutResId(): Int = R.layout.activity_edit_note
 
     override fun initView() {
-        blogId = intent.getLongExtra(EXTRA_KEY_NOTE_ID, 0L)
-        val blogTitle = intent.getStringExtra(EXTRA_KEY_NOTE_TITLE)
-        val blogContent = intent.getStringExtra(EXTRA_KEY_NOTE_CONTENT)
-        titleEt.setText(blogTitle)
-        contentEt.setText(blogContent)
+        noteId = intent.getLongExtra(EXTRA_KEY_NOTE_ID, 0L)
+        val title = intent.getStringExtra(EXTRA_KEY_NOTE_TITLE)
+        val content = intent.getStringExtra(EXTRA_KEY_NOTE_CONTENT)
+        titleEt.setText(title)
+        contentEt.setText(content)
         initToolbar()
     }
 
     private fun initToolbar() {
-        toolbar.inflateMenu(R.menu.edit_blog)
+        toolbar.inflateMenu(R.menu.edit)
         toolbar.setNavigationOnClickListener { finish() }
         toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
-                R.id.action_save -> saveBlog()
+                R.id.action_save -> saveData()
             }
             false
         }
     }
 
-    private fun saveBlog() {
-        mViewModel.modifyBlog(blogId, titleEt.text.toString(), contentEt.text.toString())
+    private fun saveData() {
+        mViewModel.modifyData(noteId, titleEt.text.toString(), contentEt.text.toString())
         finish()
     }
 }

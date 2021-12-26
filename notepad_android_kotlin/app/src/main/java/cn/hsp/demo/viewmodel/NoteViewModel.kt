@@ -11,18 +11,18 @@ import cn.hsp.demo.network.response.Note
  * 公众号：花生皮编程
  */
 class NoteViewModel : BaseViewModel() {
-    private val blogListRepo by lazy { NoteRepo() }
+    private val repo by lazy { NoteRepo() }
     val note: MutableLiveData<Note> = MutableLiveData()
 
-    fun getBlog(
-        blogId: Long,
+    fun queryData(
+        noteId: Long,
         onSuccess: (() -> Unit)? = null,
         onFailure: ((msg: String) -> Unit)? = null,
         onComplete: (() -> Unit)? = null
     ) {
         launch(
             {
-                note.value = blogListRepo.queryData(blogId)?.data
+                note.value = repo.queryData(noteId)?.data
                 onSuccess?.invoke()
             },
             { onFailure?.invoke(it.message ?: "") },
@@ -39,14 +39,14 @@ class NoteViewModel : BaseViewModel() {
     ) {
         launch(
             {
-                blogListRepo.addData(title, content)
+                repo.addData(title, content)
                 onSuccess?.invoke()
             },
             { onFailure?.invoke(it.message ?: "") },
             { onComplete?.invoke() })
     }
 
-    fun modifyBlog(
+    fun modifyData(
         id: Long,
         title: String,
         content: String,
@@ -56,22 +56,22 @@ class NoteViewModel : BaseViewModel() {
     ) {
         launch(
             {
-                blogListRepo.modifyData(id, title, content)
+                repo.modifyData(id, title, content)
                 onSuccess?.invoke()
             },
             { onFailure?.invoke(it.message ?: "") },
             { onComplete?.invoke() })
     }
 
-    fun delBlog(
-        blogId: Long,
+    fun deleteData(
+        noteId: Long,
         onSuccess: (() -> Unit)? = null,
         onFailure: ((msg: String) -> Unit)? = null,
         onComplete: (() -> Unit)? = null
     ) {
         launch(
             {
-                blogListRepo.deleteData(blogId)
+                repo.deleteData(noteId)
                 onSuccess?.invoke()
             },
             { onFailure?.invoke(it.message ?: "") },

@@ -18,34 +18,34 @@ import kotlinx.android.synthetic.main.activity_view_note.*
  * 公众号：花生皮编程
  */
 class ViewNoteActivity : BaseVmActivity<NoteViewModel>() {
-    private var blogId = 0L
+    private var noteId = 0L
     private var note: Note? = null
     override fun viewModelClass() = NoteViewModel::class.java
     override fun layoutResId(): Int = R.layout.activity_view_note
 
     override fun initView() {
-        blogId = intent.getLongExtra(EXTRA_KEY_NOTE_ID, 0L)
+        noteId = intent.getLongExtra(EXTRA_KEY_NOTE_ID, 0L)
         initToolbar()
     }
 
     private fun initToolbar() {
-        toolbar.inflateMenu(R.menu.view_blog)
+        toolbar.inflateMenu(R.menu.view)
         toolbar.setNavigationOnClickListener { finish() }
         toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
-                R.id.action_modify -> gotoModifyBlogPage()
-                R.id.action_del -> delBlog()
+                R.id.action_modify -> gotoModifyNotePage()
+                R.id.action_del -> deleteData()
             }
             false
         }
     }
 
-    private fun delBlog() {
-        mViewModel.delBlog(blogId)
+    private fun deleteData() {
+        mViewModel.deleteData(noteId)
         finish()
     }
 
-    private fun gotoModifyBlogPage() {
+    private fun gotoModifyNotePage() {
         val intent = Intent(this, EditNoteActivity::class.java)
         intent.putExtra(EXTRA_KEY_NOTE_ID, note?.id)
         intent.putExtra(EXTRA_KEY_NOTE_TITLE, note?.title)
@@ -54,7 +54,7 @@ class ViewNoteActivity : BaseVmActivity<NoteViewModel>() {
     }
 
     override fun initData() {
-        mViewModel.getBlog(blogId)
+        mViewModel.queryData(noteId)
     }
 
     override fun observe() {

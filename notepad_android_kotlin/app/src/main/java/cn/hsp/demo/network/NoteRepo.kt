@@ -13,7 +13,7 @@ import cn.hsp.demo.network.request.ModifyNoteRequest
 import cn.hsp.demo.network.request.RegisterRequest
 
 class NoteRepo : BaseRepository() {
-    suspend fun getDataList(userId: Long) = apiService.getDataList(userId)
+    suspend fun queryDataList(userId: Long) = apiService.getDataList(userId)
     suspend fun queryData(noteId: Long) = apiService.queryData(noteId)
     suspend fun addData(title: String, content: String) =
         apiService.addData(AddNoteRequest(title, content))

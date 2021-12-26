@@ -20,7 +20,7 @@ class AddNoteActivity : BaseVmActivity<NoteViewModel>() {
     }
 
     private fun initToolbar() {
-        toolbar.inflateMenu(R.menu.add_note)
+        toolbar.inflateMenu(R.menu.add)
         toolbar.setNavigationOnClickListener { finish() }
         toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {

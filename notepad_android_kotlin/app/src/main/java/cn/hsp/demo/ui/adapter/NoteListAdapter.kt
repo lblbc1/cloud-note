@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cn.hsp.demo.R
 import cn.hsp.demo.network.response.Note
-import kotlinx.android.synthetic.main.item_blog.view.*
+import kotlinx.android.synthetic.main.item_note.view.*
+
 /**
  * 厦门大学计算机专业 | 前华为工程师
  * 专注《零基础学编程系列》https://cxyxy.blog.csdn.net/article/details/121134634
@@ -31,7 +32,7 @@ class NoteListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount(): Int = dataList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_blog, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_note, parent, false)
         return ViewHolder(view)
     }
 
