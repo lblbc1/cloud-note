@@ -2,28 +2,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '/network/http_manager.dart';
-import '/pages/edit_blog.dart';
+import '/pages/edit_note.dart';
 
 /// 厦门大学计算机专业 | 前华为工程师
 /// 分享编程技术，没啥深度，但看得懂，适合初学者。
 /// Java | 安卓 | 前端 | 小程序 | 鸿蒙
 /// 公众号：花生皮编程
-class ViewBlogPage extends StatefulWidget {
-  final int blogId;
+class ViewNotePage extends StatefulWidget {
+  final int noteId;
 
-  ViewBlogPage({Key? key, required this.blogId}) : super(key: key);
+  ViewNotePage({Key? key, required this.noteId}) : super(key: key);
 
   @override
-  createState() => _ViewBlogPageState(blogId);
+  createState() => _ViewNotePageState(noteId);
 }
 
-class _ViewBlogPageState extends State<ViewBlogPage> {
+class _ViewNotePageState extends State<ViewNotePage> {
   String title = "";
   String content = "";
-  int _blogId = 0;
+  int _noteId = 0;
 
-  _ViewBlogPageState(int blogId) {
-    _blogId = blogId;
+  _ViewNotePageState(int noteId) {
+    _noteId = noteId;
   }
 
   @override
@@ -33,7 +33,7 @@ class _ViewBlogPageState extends State<ViewBlogPage> {
   }
 
   loadData() async {
-    String url = "blog/api/query/$_blogId";
+    String url = "note/api/query/$_noteId";
     HttpManager.getInstance().get(url).then((resp) {
       Map<String, dynamic> result = new Map<String, dynamic>.from(resp);
       setState(() {
@@ -74,7 +74,7 @@ class _ViewBlogPageState extends State<ViewBlogPage> {
         ElevatedButton(
           child: Text("修改"),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => EditBlogPage(blogId: _blogId)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => EditNotePage(noteId: _noteId)));
           },
         ),
       ],

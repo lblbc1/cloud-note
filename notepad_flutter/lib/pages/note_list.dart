@@ -1,41 +1,41 @@
-import 'package:blog_flutter/network/http_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:note_flutter/network/http_managerart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../app_strings.dart';
-import 'add_blog.dart';
-import 'view_blog.dart';
+import 'add_note.dart';
+import 'view_note.dart';
 
 /// 厦门大学计算机专业 | 前华为工程师
 /// 分享编程技术，没啥深度，但看得懂，适合初学者。
 /// Java | 安卓 | 前端 | 小程序 | 鸿蒙
 /// 公众号：花生皮编程
-class BlogListPage extends StatelessWidget {
+class NoteListPage extends StatelessWidget {
   final parentContext;
 
-  BlogListPage(this.parentContext);
+  NoteListPage(this.parentContext);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: '花生皮博客',
-      home: BlogListWidget(this.parentContext),
+      home: NoteListWidget(this.parentContext),
     );
   }
 }
 
-class BlogListWidget extends StatefulWidget {
+class NoteListWidget extends StatefulWidget {
   final parentContext;
 
-  BlogListWidget(this.parentContext);
+  NoteListWidget(this.parentContext);
 
   @override
-  createState() => _BlogListState();
+  createState() => _NoteListState();
 }
 
-class _BlogListState extends State<BlogListWidget> {
-  List blogs = [];
+class _NoteListState extends State<NoteListWidget> {
+  List notes = [];
 
   @override
   void initState() {
@@ -50,8 +50,8 @@ class _BlogListState extends State<BlogListWidget> {
         title: Text("博客"),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: gotoAddBlogPage,
-        tooltip: 'addBlog',
+        onPressed: gotoAddNotePage,
+        tooltip: 'addNote',
         child: Icon(Icons.add),
       ),
       body: Center(
@@ -60,32 +60,32 @@ class _BlogListState extends State<BlogListWidget> {
     );
   }
 
-  gotoAddBlogPage() {
-    Navigator.push(widget.parentContext, MaterialPageRoute(builder: (context) => AddBlogPage()));
+  gotoAddNotePage() {
+    Navigator.push(widget.parentContext, MaterialPageRoute(builder: (context) => AddNotePage()));
   }
 
   loadData() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     int? userId = sharedPreferences.getInt(AppStrings.SP_KEY_USER_ID);
     if (userId != null) {
-      String url = "blog/api/list/" + userId.toString();
+      String url = "note/api/list/" + userId.toString();
       HttpManager.getInstance().get(url).then((resp) {
         Map<String, dynamic> result = new Map<String, dynamic>.from(resp);
         setState(() {
-          blogs = result['data'];
+          notes = result['data'];
         });
       });
     }
   }
 
-  getItem(blog) {
+  getItem(note) {
     var row = Container(
       margin: EdgeInsets.all(4.0),
       child: InkWell(
         onTap: () {
-          onRowClick(blog);
+          onRowClick(note);
         },
-        child: buildRow(blog),
+        child: buildRow(note),
       ),
     );
     return Card(
@@ -93,7 +93,7 @@ class _BlogListState extends State<BlogListWidget> {
     );
   }
 
-  Row buildRow(blog) {
+  Row buildRow(note) {
     return Row(
       children: <Widget>[
         Expanded(
@@ -105,7 +105,7 @@ class _BlogListState extends State<BlogListWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                blog['title'],
+                note['title'],
                 style: TextStyle(
                   fontSize: 18.0,
                 ),
@@ -119,11 +119,11 @@ class _BlogListState extends State<BlogListWidget> {
   }
 
   getBody() {
-    if (blogs.length != 0) {
+    if (notes.length != 0) {
       return ListView.builder(
-          itemCount: blogs.length,
+          itemCount: notes.length,
           itemBuilder: (BuildContext context, int position) {
-            return getItem(blogs[position]);
+            return getItem(notes[position]);
           });
     } else {
       // 加载菊花
@@ -131,7 +131,7 @@ class _BlogListState extends State<BlogListWidget> {
     }
   }
 
-  onRowClick(blog) {
-    Navigator.push(widget.parentContext, MaterialPageRoute(builder: (context) => ViewBlogPage(blogId: blog['id'])));
+  onRowClick(note) {
+    Navigator.push(widget.parentContext, MaterialPageRoute(builder: (context) => ViewNotePage(noteId: note['id'])));
   }
 }

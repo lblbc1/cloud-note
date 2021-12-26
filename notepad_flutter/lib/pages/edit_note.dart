@@ -1,4 +1,4 @@
-import 'package:blog_flutter/network/http_manager.dart';
+import 'package:note_flutter/network/http_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,24 +6,51 @@ import 'package:flutter/material.dart';
 /// 分享编程技术，没啥深度，但看得懂，适合初学者。
 /// Java | 安卓 | 前端 | 小程序 | 鸿蒙
 /// 公众号：花生皮编程
-class AddBlogPage extends StatefulWidget {
-  AddBlogPage({Key? key}) : super(key: key);
+class EditNotePage extends StatefulWidget {
+  final int noteId;
+
+  EditNotePage({Key? key, required this.noteId}) : super(key: key);
 
   @override
-  createState() => _AddBlogPageState();
+  createState() => _EditNotePageState(noteId);
 }
 
-class _AddBlogPageState extends State<AddBlogPage> {
-  TextEditingController _contentController = TextEditingController();
-  TextEditingController _titleController = TextEditingController();
+class _EditNotePageState extends State<EditNotePage> {
   String title = "";
   String content = "";
+  int _noteId = 0;
+
+  TextEditingController _titleController = TextEditingController();
+  TextEditingController _contentController = TextEditingController();
+
+  _EditNotePageState(int noteId) {
+    _noteId = noteId;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    String url = "note/api/query/$_noteId";
+    HttpManager.getInstance().get(url).then((resp) {
+      Map<String, dynamic> result = new Map<String, dynamic>.from(resp);
+      setState(() {
+        var data = result['data'];
+        title = data['title'];
+        content = data['content'];
+        _titleController.text = title;
+        _contentController.text = content;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("发博客"),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -61,19 +88,19 @@ class _AddBlogPageState extends State<AddBlogPage> {
         ElevatedButton(
           child: Text("发布"),
           onPressed: () {
-            addBlog();
+            modifyNote();
           },
         ),
       ],
     );
   }
 
-  addBlog() async {
-    String url = "blog/api/add";
+  modifyNote() async {
+    String url = "note/api/modify";
     String title = _titleController.text;
     String content = _contentController.text;
-    HttpManager.getInstance().post(url, data: {"title": title, "content": content}).then((resp) {
-      Navigator.pop(context);
+    HttpManager.getInstance().post(url, data: {"id": widget.noteId, "title": title, "content": content}).then((resp) {
+      Navigator.of(context).popUntil((route) => route.isFirst); //回到首页
     });
   }
 }
