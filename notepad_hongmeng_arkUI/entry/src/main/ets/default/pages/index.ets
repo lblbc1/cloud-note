@@ -115,6 +115,7 @@ struct Index {
   getRequest() {
     // 每一个httpRequest对应一个http请求任务，不可复用
     let httpRequest = http.createHttp()
+    //TODO： 鸿蒙模拟器在远端，所以访问不了本地接口
     let url = 'http://localhost:8080/note/api/list/1'
 
 //    var options = http.HttpRequestOptions()
