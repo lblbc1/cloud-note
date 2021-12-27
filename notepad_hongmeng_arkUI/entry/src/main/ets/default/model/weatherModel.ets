@@ -1,3 +1,15 @@
+export class NoteListResp {
+  code: number
+  msg: string
+  data:  Array<Note>
+}
+
+export class Note {
+  id: number
+  content: string
+}
+
+
 export class WeatherModel {
   reason: string //返回说明
   error_code: number //返回码，0为查询成功

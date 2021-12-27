@@ -1,4 +1,4 @@
-import {WeatherModel, RealtimeWeatherData, WeatherData, getTest} from '../model/weatherModel.ets';
+import {WeatherModel, NoteListResp,Note, RealtimeWeatherData, WeatherData, getTest} from '../model/weatherModel.ets';
 import prompt from '@system.prompt';
 import http from '@ohos.net.http';
 
@@ -6,7 +6,7 @@ import http from '@ohos.net.http';
 @Component
 struct Index {
   @State realtime: RealtimeWeatherData = new RealtimeWeatherData()
-  @State future: Array<WeatherData> = getTest()
+  @State future: Array<Note> = Array()
   @State loadingHint: string = ''
   @State isRequestSucceed: boolean = false
 
@@ -71,7 +71,7 @@ struct Index {
       .padding(20)
       .onClick(() => {
         this.loadingHint = '加载中...'
-        this.postRequest()
+        this.getRequest()
       })
 
       if (this.isRequestSucceed) {
@@ -87,12 +87,12 @@ struct Index {
             this.WeatherText('风向')
           }.backgroundColor('#ffe9c4')
 
-          ForEach(this.future, (item: WeatherData) => {
+          ForEach(this.future, (item: Note) => {
             Row() {
-              this.WeatherText(item.date)
-              this.WeatherText(item.temperature)
-              this.WeatherText(item.weather)
-              this.WeatherText(item.direct)
+              this.WeatherText(item.content)
+              this.WeatherText(item.content)
+              this.WeatherText(item.content)
+              this.WeatherText(item.content)
             }
           }, item => item.date)
         }
@@ -115,22 +115,23 @@ struct Index {
   getRequest() {
     // 每一个httpRequest对应一个http请求任务，不可复用
     let httpRequest = http.createHttp()
-    let url = 'http://apis.juhe.cn/simpleWeather/query?key=397c9db4cb0621ad0313123dab416668&city=北京'
+    let url = 'http://localhost:8080/note/api/list/1'
+
+//    var options = http.HttpRequestOptions()
     httpRequest.request(url, (err, data) => {
       if (!err) {
         if (data.responseCode == 200) {
           console.info('=====data.result=====' + JSON.stringify(data.result))
           // 解析数据
-          var weatherModel: WeatherModel = JSON.parse(JSON.stringify(data.result))
+          var weatherModel: NoteListResp = JSON.parse(JSON.stringify(data.result))
           // 判断接口返回码，0成功
-          if (weatherModel.error_code == 0) {
+          if (weatherModel.code == 0) {
             // 设置数据
-            this.realtime = weatherModel.result.realtime
-            this.future = weatherModel.result.future
+            this.future = weatherModel.data
             this.isRequestSucceed = true
           } else {
             // 接口异常，弹出提示
-            prompt.showToast({ message: weatherModel.reason })
+            prompt.showToast({ message: weatherModel.msg })
           }
         } else {
           // 请求失败，弹出提示
@@ -144,45 +145,45 @@ struct Index {
   }
 
 // 请求方式：POST
-  postRequest() {
-    // 每一个httpRequest对应一个http请求任务，不可复用
-    let httpRequest = http.createHttp()
-    let url = 'http://apis.juhe.cn/simpleWeather/query'
-    httpRequest.request(url,
-      {
-        // 看源码得知method的类型为：RequestMethod
-        // 但是设置 method: http.RequestMethod.POST 报错
-        // 设置成 method: http.POST 可以
-        method: http.POST,
-        extraData: {
-          'key': '397c9db4cb0621ad0313123dab416668',
-          'city': '北京'
-        }
-      },
-      (err, data) => {
-        if (!err) {
-          if (data.responseCode == 200) {
-            console.info('=====data.result=====' + JSON.stringify(data.result))
-            // 解析数据
-            var weatherModel: WeatherModel = JSON.parse(JSON.stringify(data.result))
-            // 判断接口返回码，0成功
-            if (weatherModel.error_code == 0) {
-              // 设置数据
-              this.realtime = weatherModel.result.realtime
-              this.future = weatherModel.result.future
-              this.isRequestSucceed = true
-            } else {
-              // 接口异常，弹出提示
-              prompt.showToast({ message: weatherModel.reason })
-            }
-          } else {
-            // 请求失败，弹出提示
-            prompt.showToast({ message: '网络异常' })
-          }
-        } else {
-          // 请求失败，弹出提示
-          prompt.showToast({ message: err.message })
-        }
-      })
-  }
+//  postRequest() {
+//    // 每一个httpRequest对应一个http请求任务，不可复用
+//    let httpRequest = http.createHttp()
+//    let url = 'http://apis.juhe.cn/simpleWeather/query'
+//    httpRequest.request(url,
+//      {
+//        // 看源码得知method的类型为：RequestMethod
+//        // 但是设置 method: http.RequestMethod.POST 报错
+//        // 设置成 method: http.POST 可以
+//        method: http.POST,
+//        extraData: {
+//          'key': '397c9db4cb0621ad0313123dab416668',
+//          'city': '北京'
+//        }
+//      },
+//      (err, data) => {
+//        if (!err) {
+//          if (data.responseCode == 200) {
+//            console.info('=====data.result=====' + JSON.stringify(data.result))
+//            // 解析数据
+//            var weatherModel: WeatherModel = JSON.parse(JSON.stringify(data.result))
+//            // 判断接口返回码，0成功
+//            if (weatherModel.error_code == 0) {
+//              // 设置数据
+//              this.realtime = weatherModel.result.realtime
+//              this.future = weatherModel.result.future
+//              this.isRequestSucceed = true
+//            } else {
+//              // 接口异常，弹出提示
+//              prompt.showToast({ message: weatherModel.reason })
+//            }
+//          } else {
+//            // 请求失败，弹出提示
+//            prompt.showToast({ message: '网络异常' })
+//          }
+//        } else {
+//          // 请求失败，弹出提示
+//          prompt.showToast({ message: err.message })
+//        }
+//      })
+//  }
 }
