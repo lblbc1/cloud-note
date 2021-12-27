@@ -4,36 +4,38 @@ var http = require('../../utils/httputils.js');
 
 Page({
   data: {
-    blogId: 0,
-    blogTitle: "",
-    blogContent: ""
+    noteId: 0,
+    noteContent: ""
   },
   onLoad: function (option) {
-    this.queryBlog(Number(option.id))
+    this.queryNote(Number(option.id))
   },
   methods: {
   },
-  queryBlog(blogId) {
+  queryNote(noteId) {
     let _this = this
-    http.get('blog/api/query/' + blogId, '',
+    http.get('note/api/query/' + noteId, '',
       function (resp) {
         _this.setData({
-          blogId: blogId,
-          blogTitle: resp.data.title,
-          blogContent: resp.data.content
+          noteId: noteId,
+          noteContent: resp.data.content
         })
       },
       function (err) { })
   },
-  modifyBlog(e) {
+  modifyNote(e) {
     var params = {
-      id: this.data.blogId,
-      title: e.detail.value.title,
+      id: this.data.noteId,
       content: e.detail.value.content,
     }
-    http.post('blog/api/modify', params,
+    http.post('note/api/modify', params,
       function (resp) {
-        wx.switchTab({ url: '/pages/list/list' })
+        wx.navigateBack({
+          delta: 0,
+          success: (res) => { },
+          fail: (res) => { },
+          complete: (res) => { },
+        })
       },
       function (err) { })
   }

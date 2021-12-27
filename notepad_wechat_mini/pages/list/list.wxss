@@ -9,24 +9,23 @@
     -webkit-overflow-scrolling: touch;
     -webkit-tap-highlight-color: transparent;
 }
-
-.blog-item-row{
-  display: flex;
+.row{
   height: 100rpx;
-  margin: 10rpx 0;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
   background-color: #fff;
 }
-.blog-index{
-  line-height: 100rpx;
-  padding-left: 10rpx;
-}
-.blog-title{
-  margin-left: 10rpx;
+.note-content{
   font-size: 40rpx;
-  line-height: 100rpx;
   color: #333;
 }
-.blog-btn{
+.split{
+  background-color: #e5e5e5;
+  height: 2rpx;
+  margin-left: 10rpx;
+  padding-right: 10rpx;
+}
+.note-btn{
   right: 0;
   position: absolute;
   line-height: 80rpx;

@@ -10,21 +10,17 @@
     -webkit-tap-highlight-color: transparent;
     min-height:2000rpx;
 }
-.blog-title{
-  background-color: #fff;
-  text-align: center;
-  font-size: 40rpx;
-}
-.blog-content{
+.note-content{
   background-color: #fff;
   margin: 10rpx 10rpx 0rpx 10rpx;
+  font-size: 40rpx;
 }
-.blog-bottom-wrapper{
+.note-bottom-wrapper{
   position: fixed;
   bottom: 0;
   width: 100%;
 }
-.blog-bottom{
+.note-bottom{
   overflow: hidden;
   display: block;
   width: 100;

@@ -8,7 +8,7 @@
 <template>
   <div class="register-warpper">
     <el-form ref="registerForm" :model="form" :rules="rules" label-width="80px" class="register-box">
-      <h3 class="register-title">博客注册</h3>
+      <h3 class="register-title">注册</h3>
       <el-form-item label="账号" prop="username">
         <el-input type="text" placeholder="请输入账号" v-model="form.username"/>
       </el-form-item>
@@ -68,7 +68,7 @@ export default {
           // const userId = res.data.data.userDetail.id
           // sessionStorage.setItem('user_token', token)
           // sessionStorage.setItem('user_id', userId)
-          this.$router.push("/blog/login");
+          this.$router.push("/note/login");
         } else {
           this.msg = res.data.msg;
           this.dialogVisible = true;

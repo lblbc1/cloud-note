@@ -12,37 +12,37 @@ const router = new Router({
     routes: [
 
         {
-            path: "/blog/login",
+            path: "/note/login",
             name: "Login",
             component: () =>
                 import( '@/views/Login'),
         },
         {
-            path: "/blog/register",
+            path: "/note/register",
             name: "Register",
             component: () =>
                 import( '@/views/Register'),
         },
         {
-            path: "/blog/list/*",
-            name: "BlogList",
+            path: "/note/list/*",
+            name: "NoteList",
             component: () =>
-                import( '@/views/BlogList'),
+                import( '@/views/NoteList'),
         },
         {
-            path: "/blog/add",
-            name: "AddBlog",
+            path: "/note/add",
+            name: "AddNote",
             component: () =>
-                import( '@/views/AddBlog'),
+                import( '@/views/AddNote'),
             meta: {
                 requiresAuth: true,
             }
         },
         {
-            path: "/blog/modify",
-            name: "ModifyBlog",
+            path: "/note/modify",
+            name: "ModifyNote",
             component: () =>
-                import( '@/views/ModifyBlog'),
+                import( '@/views/ModifyNote'),
             meta: {
                 requiresAuth: true,
             }

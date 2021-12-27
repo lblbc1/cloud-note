@@ -8,17 +8,17 @@ Page({
     dataList: [],
   },
   onLoad: function () {
-    this.getBlogList()
+    this.getNoteList()
   },
   onShow: function () {
-    this.getBlogList()
+    this.getNoteList()
   },
   methods: {
   },
-  getBlogList() {
+  getNoteList() {
     let _this = this
     let userId = app.getGlobalUserInfo().id
-    http.get('blog/api/list/' + userId, '',
+    http.get('note/api/list/' + userId, '',
       function (resp) {
         _this.setData({
           dataList: resp.data
@@ -26,18 +26,18 @@ Page({
       },
       function (err) { })
   },
-  addBlog(){
+  addNote(){
     // wx.navigateTo({
-    //   url: '/pages/blog-add/blog-add'
+    //   url: '/pages/note-add/note-add'
     // })
     wx.navigateTo({
-      url: '/pages/blog-add/blog-add'
+      url: '/pages/note-add/note-add'
     })
   },
-  viewBlog(e) {
-    let blogId = e.currentTarget.dataset['blogid'];
+  viewNote(e) {
+    let noteId = e.currentTarget.dataset['noteid'];
     wx.navigateTo({
-      url: '/pages/blog-view/blog-view?id=' + blogId
+      url: '/pages/note-edit/note-edit?id=' + noteId
     })
   }
 

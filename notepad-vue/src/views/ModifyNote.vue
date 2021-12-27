@@ -5,16 +5,13 @@
  公众号：花生皮编程
 -->
 <template>
-  <div class="blog-wrapper">
-    <el-form ref="form" :model="form" :rules="rules" class="blog-box">
-      <el-form-item prop="title">
-        <el-input type="text" placeholder="请输入博客标题" v-model="form.title"/>
-      </el-form-item>
+  <div class="note-wrapper">
+    <el-form ref="form" :model="form" :rules="rules" class="note-box">
       <el-form-item prop="content">
-        <el-input type="textarea" placeholder="请输入博客正文" :rows="20" v-model="form.content"/>
+        <el-input type="textarea" placeholder="请输入内容" :rows="20" v-model="form.content"/>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" v-on:click="modifyBlog()">更新博客</el-button>
+        <el-button type="primary" v-on:click="modifyNote()">保存</el-button>
       </el-form-item>
     </el-form>
 
@@ -28,25 +25,19 @@
 </template>
 
 <script>
-import {modifyBlog, queryBlog} from "../api/blog_api";
+import {modifyNote, queryNote} from "../api/note_api";
 
 export default {
-  name: "ModifyBlog",
+  name: "ModifyNote",
   data() {
     return {
       form: {
         id: 0,
-        title: '',
         content: ''
       },
       msg: '',
       // 表单验证，需要在 el-form-item 元素中增加 prop 属性
       rules: {
-        title: [{
-          required: true,
-          message: '标题不可为空',
-          trigger: 'blur'
-        }],
         content: [{
           required: true,
           message: '内容不可为空',
@@ -59,11 +50,11 @@ export default {
     }
   },
   methods: {
-    async modifyBlog() {
+    async modifyNote() {
       let _this = this;
-      modifyBlog(_this.form).then(res => {
+      modifyNote(_this.form).then(res => {
         let userId = sessionStorage.getItem('user_id')
-        this.$router.push("/blog/list/?userId="+userId);
+        this.$router.push("/note/list/?userId="+userId);
       }).catch(error => {
         alert('更新失败');
         console.log(error);
@@ -71,7 +62,7 @@ export default {
     }
   },
   mounted() {
-    queryBlog(this.$route.query.id).then(res => {
+    queryNote(this.$route.query.id).then(res => {
       this.form.id = res.data.data.id
       this.form.title = res.data.data.title
       this.form.content = res.data.data.content
@@ -83,13 +74,13 @@ export default {
 </script>
 
 <style>
-.blog-wrapper {
+.note-wrapper {
   position: absolute;
   height: 100%;
   width: 100%;
 }
 
-.blog-box {
+.note-box {
   border: 1px solid #DCDFE6;
   width: 80%;
   margin: 0 auto;

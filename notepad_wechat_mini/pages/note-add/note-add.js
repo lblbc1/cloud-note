@@ -4,25 +4,27 @@ var http = require('../../utils/httputils.js');
 
 Page({
   data: {
-    blogTitle: "",
-    blogContent: ""
+    noteContent: ""
   },
   methods: {
   },
   onShow: function () {
     this.setData({
-      blogTitle: "",
-      blogContent: ""
+      noteContent: ""
     })
   },
-  addBlog(e) {
+  addNote(e) {
     var params = {
-      title: e.detail.value.title,
       content: e.detail.value.content,
     }
-    http.post('blog/api/add', params,
+    http.post('note/api/add', params,
       function (resp) {
-        wx.switchTab({ url: '/pages/list/list' })
+        wx.navigateBack({
+          delta: 0,
+          success: (res) => {},
+          fail: (res) => {},
+          complete: (res) => {},
+        })
       },
       function (err) { })
   }

@@ -1,37 +1,14 @@
 {
   "pages": [
     "pages/list/list",
-    "pages/mine/mine",
-    "pages/blog-view/blog-view",
-    "pages/blog-add/blog-add",
-    "pages/blog-edit/blog-edit"
+    "pages/note-add/note-add",
+    "pages/note-edit/note-edit"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "花生皮博客",
+    "navigationBarTitleText": "记事本-花生皮编程",
     "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "custom": false,
-    "color": "#dbdbdb",
-    "selectedColor": "#337AFF",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
-    "list": [
-      {
-        "pagePath": "pages/list/list",
-        "text": "首页",
-        "iconPath": "images/icon-home.png",
-        "selectedIconPath": "images/icon-home-selected.png"
-      },
-      {
-        "pagePath": "pages/mine/mine",
-        "text": "我的",
-        "iconPath": "images/icon-me.png",
-        "selectedIconPath": "images/icon-me-selected.png"
-      }
-    ]
   },
   "sitemapLocation": "sitemap.json"
 }

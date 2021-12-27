@@ -7,41 +7,41 @@
 import request from '../router/axios';
 import {baseUrl} from "../config/env";
 
-export const addBlog = (form) => {
+export const addNote = (form) => {
     return request({
-        url: baseUrl + 'blog/api/add',
+        url: baseUrl + 'note/api/add',
         method: 'post',
         data: JSON.stringify(form),
         headers: {"Content-Type": "application/json"},
     })
 };
 
-export const modifyBlog = (form) => {
+export const modifyNote = (form) => {
     return request({
-        url: baseUrl + 'blog/api/modify',
+        url: baseUrl + 'note/api/modify',
         method: 'post',
         data: JSON.stringify(form),
         headers: {"Content-Type": "application/json"},
     })
 };
 
-export const listBlog = (userId) => {
+export const listNote = (userId) => {
     return request({
-        url: baseUrl + 'blog/api/list/'+userId,
+        url: baseUrl + 'note/api/list/'+userId,
         method: 'get',
     })
 };
 
-export const queryBlog = (blogId) => {
+export const queryNote = (noteId) => {
     return request({
-        url: baseUrl + 'blog/api/query/'+blogId,
+        url: baseUrl + 'note/api/query/'+noteId,
         method: 'get',
     })
 };
 
-export const delBlog = (blogId) => {
+export const delNote = (noteId) => {
     return request({
-        url: baseUrl + 'blog/api/del/'+blogId,
+        url: baseUrl + 'note/api/del/'+noteId,
         method: 'get',
     })
 };
