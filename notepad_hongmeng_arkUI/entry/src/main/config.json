@@ -7,7 +7,13 @@
       "name": "1.0.0"
     }
   },
-  "deviceConfig": {},
+  "deviceConfig": {
+    "default": {
+      "network": {
+        "cleartextTraffic": true
+      }
+    }
+  },
   "module": {
     "package": "cn.hsp.demo",
     "name": "cn.hsp.demo.HspApplication",
@@ -23,6 +29,11 @@
       "moduleType": "entry",
       "installationFree": false
     },
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      }
+    ],
     "abilities": [
       {
         "skills": [

@@ -1,93 +1,188 @@
+import {WeatherModel, RealtimeWeatherData, WeatherData, getTest} from '../model/weatherModel.ets';
+import prompt from '@system.prompt';
+import http from '@ohos.net.http';
+
 @Entry
 @Component
 struct Index {
-  interval = 0
-  isStarted = false
-  startTime = Date.now()
-  lastTimeElapsed = 0
-  @State timeElapsed: number = 0
-  @State startPauseButtonText: string = '开始'
+  @State realtime: RealtimeWeatherData = new RealtimeWeatherData()
+  @State future: Array<WeatherData> = getTest()
+  @State loadingHint: string = ''
+  @State isRequestSucceed: boolean = false
+
+  @Builder RealtimeWeather() {
+    Column() {
+      Row() {
+        Text('北京')
+          .fontSize(15)
+        Image($r('app.media.ic_location'))
+          .width(15)
+          .height(15)
+          .margin({ left: 5 })
+      }
+
+      Row() {
+        Text(this.realtime.temperature)
+          .fontSize(60)
+
+        Text('℃')
+          .fontSize(15)
+          .margin({ top: 10 })
+      }
+      .alignItems(VerticalAlign.Top)
+      .margin({ top: 5 })
+
+      Row() {
+        Text(this.realtime.info)
+          .fontSize(13)
+
+        Divider()
+          .vertical(true)
+          .height(12)
+          .margin({ left: 7, right: 7 })
+
+        Text(this.realtime.direct)
+          .fontSize(13)
+
+      }
+      .alignItems(VerticalAlign.Center)
+      .margin({ top: 5 })
+    }.margin({ top: 50 })
+  }
+
+  @Builder WeatherText(text:string) {
+    Text(text)
+      .fontSize(13)
+      .layoutWeight(1)
+      .textAlign(TextAlign.Center)
+      .margin({ top: 10, bottom: 10 })
+  }
 
   build() {
-    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
-      Text(this.formatTimeElapsed()).fontSize(40).fontColor(Color.White)
-      Row() {
-        Button({ type: ButtonType.Capsule, stateEffect: false }) {
-          Text('重置').fontSize(17).fontColor(Color.White)
-        }
-        .backgroundColor('#6c6c6c')
-        .margin(50)
-        .height(80)
-        .width(80)
-        .onClick(() => {
-          this.resetTimer()
-        })
+    Column() {
 
-        Button({ type: ButtonType.Capsule, stateEffect: false }) {
-          Text(this.startPauseButtonText).fontSize(17).fontColor(Color.White)
+      Button() {
+        Text('获取北京天气数据')
+          .width('100%')
+          .fontSize(15)
+          .fontColor(Color.White)
+          .textAlign(TextAlign.Center)
+      }
+      .padding(20)
+      .onClick(() => {
+        this.loadingHint = '加载中...'
+        this.postRequest()
+      })
+
+      if (this.isRequestSucceed) {
+        // 当前天气
+        this.RealtimeWeather()
+
+        // 往后天气
+        Column() {
+          Row() {
+            this.WeatherText('日期')
+            this.WeatherText('温度')
+            this.WeatherText('天气')
+            this.WeatherText('风向')
+          }.backgroundColor('#ffe9c4')
+
+          ForEach(this.future, (item: WeatherData) => {
+            Row() {
+              this.WeatherText(item.date)
+              this.WeatherText(item.temperature)
+              this.WeatherText(item.weather)
+              this.WeatherText(item.direct)
+            }
+          }, item => item.date)
         }
-        .backgroundColor('#489cf5')
-        .margin(50)
-        .height(80)
-        .width(80)
-        .onClick(() => {
-          this.startOrPauseTimer()
-        })
-      }.margin({ top: 100 })
+        .padding(10)
+        .margin({ top: 20 })
+
+      } else {
+        Text(this.loadingHint)
+          .textAlign(TextAlign.Center)
+          .fontSize(20)
+          .width('100%')
+          .height('80%')
+      }
     }
     .width('100%')
     .height('100%')
-    .backgroundColor('#000000')
   }
 
-  startOrPauseTimer() {
-    if (this.isStarted) {
-      if (this.interval != 0) {
-        clearInterval(this.interval)
-        this.interval = 0
+// 请求方式：GET
+  getRequest() {
+    // 每一个httpRequest对应一个http请求任务，不可复用
+    let httpRequest = http.createHttp()
+    let url = 'http://apis.juhe.cn/simpleWeather/query?key=397c9db4cb0621ad0313123dab416668&city=北京'
+    httpRequest.request(url, (err, data) => {
+      if (!err) {
+        if (data.responseCode == 200) {
+          console.info('=====data.result=====' + JSON.stringify(data.result))
+          // 解析数据
+          var weatherModel: WeatherModel = JSON.parse(JSON.stringify(data.result))
+          // 判断接口返回码，0成功
+          if (weatherModel.error_code == 0) {
+            // 设置数据
+            this.realtime = weatherModel.result.realtime
+            this.future = weatherModel.result.future
+            this.isRequestSucceed = true
+          } else {
+            // 接口异常，弹出提示
+            prompt.showToast({ message: weatherModel.reason })
+          }
+        } else {
+          // 请求失败，弹出提示
+          prompt.showToast({ message: '网络异常' })
+        }
+      } else {
+        // 请求失败，弹出提示
+        prompt.showToast({ message: err.message })
       }
-      this.startTime
-      this.lastTimeElapsed = Date.now() - this.startTime + this.lastTimeElapsed
-      this.startPauseButtonText = '开始'
-    } else {
-      this.startTime = Date.now()
-      this.startPauseButtonText = '暂停'
-
-      if (this.interval == 0) {
-        this.interval = setInterval(() => {
-          this.timeElapsed = Date.now() - this.startTime + this.lastTimeElapsed
-        }, 100)
-      }
-    }
-
-    this.isStarted = !this.isStarted
+    })
   }
 
-  resetTimer() {
-    if (this.interval != 0) {
-      clearInterval(this.interval)
-      this.interval = 0
-    }
-    this.timeElapsed = 0
-    this.lastTimeElapsed = 0
-    this.isStarted = false
-    this.startPauseButtonText = '开始'
-  }
-
-  formatTimeElapsed() {
-    var mm = parseInt(this.timeElapsed / 1000 / 60 + '')
-    var mmStr = mm.toString()
-    if (mm < 10) mmStr = '0' + mm
-    var ss = parseInt((this.timeElapsed / 1000) % 60 + '')
-    var ssStr = ss.toString()
-    if (ss < 10) ssStr = '0' + ss
-    var ssss = this.timeElapsed % 1000
-    var ssssStr = ssss.toString()
-    if (ssss < 10) {
-      ssssStr = '00' + ssss
-    } else if (ssss < 100) {
-      ssssStr = '0' + ssss
-    }
-    return `${mmStr}:${ssStr}:${ssssStr}`
+// 请求方式：POST
+  postRequest() {
+    // 每一个httpRequest对应一个http请求任务，不可复用
+    let httpRequest = http.createHttp()
+    let url = 'http://apis.juhe.cn/simpleWeather/query'
+    httpRequest.request(url,
+      {
+        // 看源码得知method的类型为：RequestMethod
+        // 但是设置 method: http.RequestMethod.POST 报错
+        // 设置成 method: http.POST 可以
+        method: http.POST,
+        extraData: {
+          'key': '397c9db4cb0621ad0313123dab416668',
+          'city': '北京'
+        }
+      },
+      (err, data) => {
+        if (!err) {
+          if (data.responseCode == 200) {
+            console.info('=====data.result=====' + JSON.stringify(data.result))
+            // 解析数据
+            var weatherModel: WeatherModel = JSON.parse(JSON.stringify(data.result))
+            // 判断接口返回码，0成功
+            if (weatherModel.error_code == 0) {
+              // 设置数据
+              this.realtime = weatherModel.result.realtime
+              this.future = weatherModel.result.future
+              this.isRequestSucceed = true
+            } else {
+              // 接口异常，弹出提示
+              prompt.showToast({ message: weatherModel.reason })
+            }
+          } else {
+            // 请求失败，弹出提示
+            prompt.showToast({ message: '网络异常' })
+          }
+        } else {
+          // 请求失败，弹出提示
+          prompt.showToast({ message: err.message })
+        }
+      })
   }
 }
