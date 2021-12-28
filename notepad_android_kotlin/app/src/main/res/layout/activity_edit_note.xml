@@ -25,5 +25,6 @@
         android:layout_weight="1"
         android:background="@null"
         android:gravity="top"
+        android:hint="请输入内容"
         android:inputType="textMultiLine" />
 </LinearLayout>

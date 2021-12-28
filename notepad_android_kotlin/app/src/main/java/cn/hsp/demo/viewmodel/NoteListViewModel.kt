@@ -1,5 +1,6 @@
 package cn.hsp.demo.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import cn.hsp.demo.base.BaseViewModel
 import cn.hsp.demo.network.NoteRepo
@@ -24,6 +25,7 @@ class NoteListViewModel : BaseViewModel() {
         launch(
             {
                 val userId = SpUtil.get(SP_KEY_USER_ID, 0L)
+                Log.v("ddfd","query")
                 dataList.value = repo.queryDataList(userId)?.data
                 onSuccess?.invoke()
             },
