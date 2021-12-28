@@ -20,5 +20,13 @@ CREATE TABLE `sys_user_role` (
 PRIMARY KEY (`user_id`,`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `note` (
+  `id` int AUTO_INCREMENT NOT NULL,
+  `userId` int(11) unsigned NOT NULL,
+  `content` TEXT DEFAULT NULL,
+  `lastUpdateTime` DATETIME DEFAULT now(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 INSERT INTO `sys_role` VALUES ('1', 'ROLE_ADMIN');
 INSERT INTO `sys_role` VALUES ('2', 'ROLE_USER');
