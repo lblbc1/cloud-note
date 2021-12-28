@@ -116,7 +116,7 @@ struct Index {
     // 每一个httpRequest对应一个http请求任务，不可复用
     let httpRequest = http.createHttp()
     //TODO： 鸿蒙模拟器在远端，所以访问不了本地接口
-    let url = 'http://localhost:8080/note/api/list/1'
+    let url = 'https://springboot-cnyo-1514875-1309002655.ap-shanghai.run.tcloudbase.com/note/api/list/2'
 
 //    var options = http.HttpRequestOptions()
     httpRequest.request(url, (err, data) => {
@@ -145,46 +145,4 @@ struct Index {
     })
   }
 
-// 请求方式：POST
-//  postRequest() {
-//    // 每一个httpRequest对应一个http请求任务，不可复用
-//    let httpRequest = http.createHttp()
-//    let url = 'http://apis.juhe.cn/simpleWeather/query'
-//    httpRequest.request(url,
-//      {
-//        // 看源码得知method的类型为：RequestMethod
-//        // 但是设置 method: http.RequestMethod.POST 报错
-//        // 设置成 method: http.POST 可以
-//        method: http.POST,
-//        extraData: {
-//          'key': '397c9db4cb0621ad0313123dab416668',
-//          'city': '北京'
-//        }
-//      },
-//      (err, data) => {
-//        if (!err) {
-//          if (data.responseCode == 200) {
-//            console.info('=====data.result=====' + JSON.stringify(data.result))
-//            // 解析数据
-//            var weatherModel: WeatherModel = JSON.parse(JSON.stringify(data.result))
-//            // 判断接口返回码，0成功
-//            if (weatherModel.error_code == 0) {
-//              // 设置数据
-//              this.realtime = weatherModel.result.realtime
-//              this.future = weatherModel.result.future
-//              this.isRequestSucceed = true
-//            } else {
-//              // 接口异常，弹出提示
-//              prompt.showToast({ message: weatherModel.reason })
-//            }
-//          } else {
-//            // 请求失败，弹出提示
-//            prompt.showToast({ message: '网络异常' })
-//          }
-//        } else {
-//          // 请求失败，弹出提示
-//          prompt.showToast({ message: err.message })
-//        }
-//      })
-//  }
 }
