@@ -8,7 +8,7 @@ import '../app_strings.dart';
 /// 厦门大学计算机专业 | 前华为工程师
 /// 专注《零基础学编程系列》https://cxyxy.blog.csdn.net/article/details/121134634
 /// 包含：Java | 安卓 | 前端 | Flutter | iOS | 小程序 | 鸿蒙
-/// 公众号：花生皮编程
+/// 公众号：蓝不蓝编程
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
 
@@ -17,6 +17,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
   String name = "";
   String password = "";
 
@@ -50,6 +53,7 @@ class _LoginPageState extends State<LoginPage> {
             decoration: InputDecoration(
               hintText: "请输入用户名",
             ),
+            controller: _nameController,
           ),
         ),
         Container(
@@ -60,6 +64,7 @@ class _LoginPageState extends State<LoginPage> {
             decoration: InputDecoration(
               hintText: "请输入密码",
             ),
+            controller: _passwordController,
           ),
         ),
         Container(
@@ -77,7 +82,8 @@ class _LoginPageState extends State<LoginPage> {
 
   login() async {
     String url = "api/login";
-    HttpManager.getInstance().post(url, data: {"name": "jerry", "password": "123456"}).then((resp) async {
+    HttpManager.getInstance()
+        .post(url, data: {"name": _nameController.text, "password": _passwordController.text}).then((resp) async {
       SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
       sharedPreferences.setInt(AppStrings.SP_KEY_USER_ID, resp['data']['id']);
       sharedPreferences.setString(AppStrings.SP_KEY_TOKEN, resp['data']['token']);
