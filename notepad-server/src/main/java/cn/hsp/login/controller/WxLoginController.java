@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author 花生皮编程
+ * @author 蓝不蓝编程
  * @Description: [微信小程序登录获取用户信息接口, 解密数据获取用户信息包括UnionID(需要微信开放平台认证开发者账户绑定的小程序)]
  */
 

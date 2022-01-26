@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'app_strings.dart';
 import 'pages/login.dart';
 import 'pages/mine.dart';
-import 'pages/note_list;
+import 'pages/note_list.dart';
 
 /// 厦门大学计算机专业 | 前华为工程师
 /// 专注《零基础学编程系列》https://cxyxy.blog.csdn.net/article/details/121134634
