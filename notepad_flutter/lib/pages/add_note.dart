@@ -21,7 +21,7 @@ class _AddNotePageState extends State<AddNotePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("发博客"),
+        title: Text("发布"),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {

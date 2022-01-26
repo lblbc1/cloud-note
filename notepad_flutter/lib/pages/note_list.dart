@@ -47,7 +47,7 @@ class _NoteListState extends State<NoteListWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("博客"),
+        title: Text("记事本"),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: gotoAddNotePage,
