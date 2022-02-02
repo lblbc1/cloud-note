@@ -7,10 +7,10 @@ import Combine
 
 final class UserData: ObservableObject {
     let objectWillChange = PassthroughSubject<UserData,Never>()
-    var notes = NoteData.shared.notes{
+    var userInfo = LoginManager.shared.userInfo{
         didSet{
             objectWillChange.send(self)
-            NoteData.shared.notes = notes
+            LoginManager.shared.userInfo = userInfo
         }
     }
 }

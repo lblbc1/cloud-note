@@ -4,8 +4,7 @@
 // 公众号：蓝不蓝编程
 
 import Foundation
-
-struct Note: Hashable,Codable,Identifiable{
-    let id = UUID()
-    var content:String
+struct UserInfo: Hashable,Codable,Identifiable{
+    let id = 0
+    var token:String
 }

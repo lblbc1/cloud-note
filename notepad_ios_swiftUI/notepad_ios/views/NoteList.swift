@@ -11,7 +11,7 @@ struct NoteList : View {
     
     var body: some View {
         NavigationView {
-            List(userData.notes) { note in
+            List(lblViewModel.noteList) { note in
                 NavigationLink(destination: NoteDetail(note: note)
                     .environmentObject(self.userData)) {
                     NoteRow(note: note)
@@ -21,6 +21,7 @@ struct NoteList : View {
                 .navigationBarItems(trailing: Button(action: self.createNote, label: { Text("新建") }))
         }.onAppear {
             lblViewModel.queryData()
+            
         }
     }
     
@@ -28,8 +29,8 @@ struct NoteList : View {
         var numberThree: Int = Int(arc4random_uniform(100))
         print(numberThree)
 
-        let newNote = Note(text: String(numberThree))
-        self.userData.notes.insert(newNote, at: 0)
+//        let newNote = Note(text: String(numberThree))
+//        self.userData.notes.insert(newNote, at: 0)
     }
 }
 

@@ -1,7 +1,7 @@
 import Foundation
 
 public struct LblAPIService {
-    let baseURL = "https://gitee.com/lblbc/"
+    let baseURL = "http://192.168.31.10:8080/"
     
     public static let shared = LblAPIService()
     let decoder = JSONDecoder()

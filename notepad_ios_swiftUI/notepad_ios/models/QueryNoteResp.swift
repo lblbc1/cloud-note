@@ -4,8 +4,8 @@
 // 公众号：蓝不蓝编程
 
 import Foundation
-
-struct Note: Hashable,Codable,Identifiable{
-    let id = UUID()
-    var content:String
+struct QueryNoteResp: Hashable,Codable,Identifiable{
+    var code = 0
+    var msg:String
+    var data:[Note]
 }

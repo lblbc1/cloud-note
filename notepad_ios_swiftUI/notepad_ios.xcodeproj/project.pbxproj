@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		C4163F6927AA7B5000D136E0 /* LblAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4163F6827AA7B5000D136E0 /* LblAPIService.swift */; };
 		C4163F6B27AA7B5900D136E0 /* LblViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4163F6A27AA7B5900D136E0 /* LblViewModel.swift */; };
-		C4163F6D27AA7B7C00D136E0 /* LblModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4163F6C27AA7B7C00D136E0 /* LblModel.swift */; };
+		C4163F6F27AA843400D136E0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4163F6E27AA843400D136E0 /* LoginView.swift */; };
+		C4163F7127AA910500D136E0 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4163F7027AA910500D136E0 /* LoginManager.swift */; };
+		C4163F7327AA919400D136E0 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4163F7227AA919400D136E0 /* UserInfo.swift */; };
+		C4163F7527AA94E200D136E0 /* QueryNoteResp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4163F7427AA94E200D136E0 /* QueryNoteResp.swift */; };
 		C49A416227429AF900F4714C /* notepad_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A416127429AF900F4714C /* notepad_iosApp.swift */; };
 		C49A416627429AFA00F4714C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49A416527429AFA00F4714C /* Assets.xcassets */; };
 		C49A416927429AFA00F4714C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49A416827429AFA00F4714C /* Preview Assets.xcassets */; };
@@ -24,7 +27,10 @@
 /* Begin PBXFileReference section */
 		C4163F6827AA7B5000D136E0 /* LblAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LblAPIService.swift; path = network/LblAPIService.swift; sourceTree = "<group>"; };
 		C4163F6A27AA7B5900D136E0 /* LblViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LblViewModel.swift; sourceTree = "<group>"; };
-		C4163F6C27AA7B7C00D136E0 /* LblModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LblModel.swift; sourceTree = "<group>"; };
+		C4163F6E27AA843400D136E0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C4163F7027AA910500D136E0 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		C4163F7227AA919400D136E0 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		C4163F7427AA94E200D136E0 /* QueryNoteResp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryNoteResp.swift; sourceTree = "<group>"; };
 		C49A415E27429AF900F4714C /* notepad_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notepad_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49A416127429AF900F4714C /* notepad_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notepad_iosApp.swift; sourceTree = "<group>"; };
 		C49A416527429AFA00F4714C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,11 +102,13 @@
 		C49A416F27429B1F00F4714C /* models */ = {
 			isa = PBXGroup;
 			children = (
-				C4163F6C27AA7B7C00D136E0 /* LblModel.swift */,
 				C4163F6A27AA7B5900D136E0 /* LblViewModel.swift */,
 				C49A417127429B4600F4714C /* Note.swift */,
 				C49A417327429B9C00F4714C /* NoteData.swift */,
 				C49A417527429D2700F4714C /* UserData.swift */,
+				C4163F7027AA910500D136E0 /* LoginManager.swift */,
+				C4163F7227AA919400D136E0 /* UserInfo.swift */,
+				C4163F7427AA94E200D136E0 /* QueryNoteResp.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -111,6 +119,7 @@
 				C49A417727429E0700F4714C /* NoteList.swift */,
 				C49A417927429E9100F4714C /* NoteDetail.swift */,
 				C49A417C2742A07C00F4714C /* NoteRow.swift */,
+				C4163F6E27AA843400D136E0 /* LoginView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -187,12 +196,15 @@
 			files = (
 				C49A417427429B9C00F4714C /* NoteData.swift in Sources */,
 				C49A417A27429E9100F4714C /* NoteDetail.swift in Sources */,
-				C4163F6D27AA7B7C00D136E0 /* LblModel.swift in Sources */,
 				C49A416227429AF900F4714C /* notepad_iosApp.swift in Sources */,
 				C4163F6927AA7B5000D136E0 /* LblAPIService.swift in Sources */,
+				C4163F7527AA94E200D136E0 /* QueryNoteResp.swift in Sources */,
+				C4163F7127AA910500D136E0 /* LoginManager.swift in Sources */,
 				C49A417627429D2700F4714C /* UserData.swift in Sources */,
 				C49A417227429B4600F4714C /* Note.swift in Sources */,
+				C4163F7327AA919400D136E0 /* UserInfo.swift in Sources */,
 				C4163F6B27AA7B5900D136E0 /* LblViewModel.swift in Sources */,
+				C4163F6F27AA843400D136E0 /* LoginView.swift in Sources */,
 				C49A417D2742A07C00F4714C /* NoteRow.swift in Sources */,
 				C49A417827429E0700F4714C /* NoteList.swift in Sources */,
 			);

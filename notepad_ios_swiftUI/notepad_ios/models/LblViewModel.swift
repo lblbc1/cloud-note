@@ -3,13 +3,13 @@ import Foundation
 
 class LblViewModel: ObservableObject {
     
-    @Published var userInfo: UserInfo? = nil
+    @Published var noteList:[Note] = []
     
     func queryData() {
-        LblAPIService.shared.get(url: "swiftui_demos/raw/master/networkDemo/data.json", params: nil, headers: nil) { (result: Result<UserInfo, LblAPIService.APIError>) in
+        LblAPIService.shared.get(url: "note/api/list", params: nil, headers: nil) { (result: Result<QueryNoteResp, LblAPIService.APIError>) in
             switch result {
             case let .success(response):
-                self.userInfo = response
+                self.noteList = response.data
             case .failure(_):
                 break
             }

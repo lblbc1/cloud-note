@@ -43,9 +43,10 @@ public class NoteRestController {
         return new Resp<>();
     }
 
-    @GetMapping("api/list/{userId}")
-    public Resp<List<Note>> list(@PathVariable long userId) {
+    @GetMapping("api/list")
+    public Resp<List<Note>> list(@RequestHeader("Authorization") String authorization) {
         Resp<List<Note>> resp = new Resp<>();
+        int userId = getUserIdFromHeader(authorization);
         resp.setData(noteService.queryByUserId(userId));
         return resp;
     }
@@ -57,4 +58,13 @@ public class NoteRestController {
         return resp;
     }
 
+    private int getUserIdFromHeader(String authorization) {
+        final String authTokenPrefix = "Bearer ";
+        int userId = 0;
+        if (authorization != null && authorization.startsWith(authTokenPrefix)) {
+            String token = authorization.substring(authTokenPrefix.length());
+            userId = jwtUtils.getUserIdFromToken(token);
+        }
+        return userId;
+    }
 }

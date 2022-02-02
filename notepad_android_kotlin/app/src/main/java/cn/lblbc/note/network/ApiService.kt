@@ -26,9 +26,8 @@ interface ApiService {
     @Headers("ignoreToken:true")
     suspend fun register(@Body request: RegisterRequest): Result<RegisterResp?>?
 
-    @GET("note/api/list/{userId}")
-    @Headers("ignoreToken:true")
-    suspend fun getDataList(@Path("userId") userId: Long): Result<List<Note>?>?
+    @GET("note/api/list")
+    suspend fun getDataList(): Result<List<Note>?>?
 
     @GET("note/api/query/{noteId}")
     suspend fun queryData(@Path("noteId") noteId: Long): Result<Note?>?

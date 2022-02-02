@@ -13,7 +13,7 @@ import cn.lblbc.note.network.request.ModifyNoteRequest
 import cn.lblbc.note.network.request.RegisterRequest
 
 class NoteRepo : BaseRepository() {
-    suspend fun queryDataList(userId: Long) = apiService.getDataList(userId)
+    suspend fun queryDataList() = apiService.getDataList()
     suspend fun queryData(noteId: Long) = apiService.queryData(noteId)
     suspend fun addData(content: String) =
         apiService.addData(AddNoteRequest(content))
