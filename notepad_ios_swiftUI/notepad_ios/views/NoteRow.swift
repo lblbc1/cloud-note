@@ -9,7 +9,7 @@ struct NoteRow: View {
     var note: Note
     var body: some View {
         HStack {
-            Text(note.text)
+            Text(note.content)
         }
     }
 }
@@ -17,8 +17,8 @@ struct NoteRow: View {
 struct NoteRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            NoteRow(note: Note(text: "蓝不蓝编程33"))
-            NoteRow(note: Note(text: "蓝不蓝编程44"))
+            NoteRow(note: Note(content: "蓝不蓝编程33"))
+            NoteRow(note: Note(content: "蓝不蓝编程44"))
         }
         .previewLayout(.fixed(width: 300, height: 50))
     }

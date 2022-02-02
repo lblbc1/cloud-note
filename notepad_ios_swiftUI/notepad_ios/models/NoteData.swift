@@ -10,9 +10,9 @@ class NoteData{
     private var notesStoreName = "notes"
     
     var notes:[Note] = [
-        Note(text: "蓝不蓝编程1"),
-        Note(text: "蓝不蓝编程2"),
-        Note(text: "蓝不蓝编程3")
+        Note(content: "蓝不蓝编程1"),
+        Note(content: "蓝不蓝编程2"),
+        Note(content: "蓝不蓝编程3")
     ]
     
     private init() { load() }

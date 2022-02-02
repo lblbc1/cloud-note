@@ -12,11 +12,12 @@ struct NoteDetail: View {
     
     init(note: Note) {
         self.note = note
-        self.text = .init(initialValue: note.text)
+        self.text = .init(initialValue: note.content)
     }
     
     var noteIndex: Int {
-        userData.notes.firstIndex(where: { $0.id == note.id})!
+//        userData.notes.firstIndex(where: { $0.id == note.id})!
+    0
     }
     
     var body: some View {
@@ -33,7 +34,7 @@ struct NoteDetail: View {
     
     private func updateNote()
     {
-        self.userData.notes[noteIndex].text = self.text.wrappedValue
+//        self.userData.notes[noteIndex].text = self.text.wrappedValue
     }
 }
 
