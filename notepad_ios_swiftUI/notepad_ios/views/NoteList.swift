@@ -7,6 +7,7 @@ import SwiftUI
 
 struct NoteList : View {
     @EnvironmentObject var userData: UserData
+    @StateObject private var lblViewModel = LblViewModel()
     
     var body: some View {
         NavigationView {
@@ -18,6 +19,8 @@ struct NoteList : View {
             }
                 .navigationBarTitle(Text("记事本-蓝不蓝编程"), displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: self.createNote, label: { Text("新建") }))
+        }.onAppear {
+            lblViewModel.queryData()
         }
     }
     

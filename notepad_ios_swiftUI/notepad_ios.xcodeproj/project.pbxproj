@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4163F6927AA7B5000D136E0 /* LblAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4163F6827AA7B5000D136E0 /* LblAPIService.swift */; };
+		C4163F6B27AA7B5900D136E0 /* LblViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4163F6A27AA7B5900D136E0 /* LblViewModel.swift */; };
+		C4163F6D27AA7B7C00D136E0 /* LblModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4163F6C27AA7B7C00D136E0 /* LblModel.swift */; };
 		C49A416227429AF900F4714C /* notepad_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A416127429AF900F4714C /* notepad_iosApp.swift */; };
 		C49A416627429AFA00F4714C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49A416527429AFA00F4714C /* Assets.xcassets */; };
 		C49A416927429AFA00F4714C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49A416827429AFA00F4714C /* Preview Assets.xcassets */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C4163F6827AA7B5000D136E0 /* LblAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LblAPIService.swift; path = network/LblAPIService.swift; sourceTree = "<group>"; };
+		C4163F6A27AA7B5900D136E0 /* LblViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LblViewModel.swift; sourceTree = "<group>"; };
+		C4163F6C27AA7B7C00D136E0 /* LblModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LblModel.swift; sourceTree = "<group>"; };
 		C49A415E27429AF900F4714C /* notepad_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notepad_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49A416127429AF900F4714C /* notepad_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notepad_iosApp.swift; sourceTree = "<group>"; };
 		C49A416527429AFA00F4714C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4163F6727AA7B4200D136E0 /* newwork */ = {
+			isa = PBXGroup;
+			children = (
+				C4163F6827AA7B5000D136E0 /* LblAPIService.swift */,
+			);
+			name = newwork;
+			sourceTree = "<group>";
+		};
 		C49A415527429AF900F4714C = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +75,7 @@
 		C49A416027429AF900F4714C /* notepad_ios */ = {
 			isa = PBXGroup;
 			children = (
+				C4163F6727AA7B4200D136E0 /* newwork */,
 				C49A417027429B2700F4714C /* views */,
 				C49A416F27429B1F00F4714C /* models */,
 				C49A416127429AF900F4714C /* notepad_iosApp.swift */,
@@ -81,6 +96,8 @@
 		C49A416F27429B1F00F4714C /* models */ = {
 			isa = PBXGroup;
 			children = (
+				C4163F6C27AA7B7C00D136E0 /* LblModel.swift */,
+				C4163F6A27AA7B5900D136E0 /* LblViewModel.swift */,
 				C49A417127429B4600F4714C /* Note.swift */,
 				C49A417327429B9C00F4714C /* NoteData.swift */,
 				C49A417527429D2700F4714C /* UserData.swift */,
@@ -170,9 +187,12 @@
 			files = (
 				C49A417427429B9C00F4714C /* NoteData.swift in Sources */,
 				C49A417A27429E9100F4714C /* NoteDetail.swift in Sources */,
+				C4163F6D27AA7B7C00D136E0 /* LblModel.swift in Sources */,
 				C49A416227429AF900F4714C /* notepad_iosApp.swift in Sources */,
+				C4163F6927AA7B5000D136E0 /* LblAPIService.swift in Sources */,
 				C49A417627429D2700F4714C /* UserData.swift in Sources */,
 				C49A417227429B4600F4714C /* Note.swift in Sources */,
+				C4163F6B27AA7B5900D136E0 /* LblViewModel.swift in Sources */,
 				C49A417D2742A07C00F4714C /* NoteRow.swift in Sources */,
 				C49A417827429E0700F4714C /* NoteList.swift in Sources */,
 			);
