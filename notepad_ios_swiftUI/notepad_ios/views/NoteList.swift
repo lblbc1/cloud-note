@@ -9,6 +9,14 @@ struct NoteList : View {
     @EnvironmentObject var userData: UserData
     @StateObject private var lblViewModel = LblViewModel()
     
+    let screnDelegate: UIWindowSceneDelegate? = {
+                 var uiScreen: UIScene?
+                 UIApplication.shared.connectedScenes.forEach { (screen) in
+                     uiScreen = screen
+                 }
+                 return (uiScreen?.delegate as? UIWindowSceneDelegate)
+             }()
+    
     var body: some View {
         NavigationView {
             List(lblViewModel.noteList) { note in
@@ -20,14 +28,18 @@ struct NoteList : View {
                 .navigationBarTitle(Text("记事本-蓝不蓝编程"), displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: self.createNote, label: { Text("新建") }))
         }.onAppear {
-            lblViewModel.queryData()
-            
+            if(userData.userInfo == nil)
+            {
+                screnDelegate?.window!?.rootViewController  = UIHostingController(rootView: LoginView());
+            }else{
+                lblViewModel.queryData()
+            }
         }
     }
     
     private func createNote() {
-        var numberThree: Int = Int(arc4random_uniform(100))
-        print(numberThree)
+//        var numberThree: Int = Int(arc4random_uniform(100))
+//        print(numberThree)
 
 //        let newNote = Note(text: String(numberThree))
 //        self.userData.notes.insert(newNote, at: 0)
