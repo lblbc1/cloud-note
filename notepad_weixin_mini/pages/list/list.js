@@ -17,8 +17,7 @@ Page({
   },
   getNoteList() {
     let _this = this
-    let userId = app.getGlobalUserInfo().id
-    http.get('note/api/list/' + userId, '',
+    http.get('note/api/list', '',
       function (resp) {
         _this.setData({
           dataList: resp.data

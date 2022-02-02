@@ -68,7 +68,7 @@ class _NoteListState extends State<NoteListWidget> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     int? userId = sharedPreferences.getInt(AppStrings.SP_KEY_USER_ID);
     if (userId != null) {
-      String url = "note/api/list/" + userId.toString();
+      String url = "note/api/list";
       HttpManager.getInstance().get(url).then((resp) {
         Map<String, dynamic> result = new Map<String, dynamic>.from(resp);
         setState(() {
