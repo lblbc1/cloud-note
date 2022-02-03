@@ -20,8 +20,23 @@ class LoginManager{
         }
     }
     
-    func save(){
+    func save(userInfo : UserInfo){
         UserDefaults.standard.set(try? PropertyListEncoder().encode(userInfo),forKey: storeName)
     }
     
+    func login(name:String,password:String) {
+        let params = [
+            "name": name,
+            "password": "1"
+        ]
+//        LblAPI.shared.post(url: "api/login", params: params, headers: nil) { (result: Result<LoginResp, LblAPIService.APIError>) in
+//            switch result {
+//            case let .success(response):
+//                self.userInfo = response.data
+//                break
+//            case .failure(_):
+//                break
+//            }
+//        }
+    }
 }

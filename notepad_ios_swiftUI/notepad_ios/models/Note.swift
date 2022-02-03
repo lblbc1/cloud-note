@@ -4,8 +4,9 @@
 // 公众号：蓝不蓝编程
 
 import Foundation
+import HandyJSON
 
-struct Note: Hashable,Codable,Identifiable{
-    let id = UUID()
-    var content:String
+struct Note: HandyJSON,Codable,Identifiable {
+    var id = UUID()
+    var content:String = ""
 }

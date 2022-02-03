@@ -4,6 +4,7 @@
 // 公众号：蓝不蓝编程
 
 import Foundation
+
 struct UserInfo: Hashable,Codable,Identifiable{
     let id = 0
     var token:String

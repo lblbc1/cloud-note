@@ -2,18 +2,20 @@ import SwiftUI
 
 struct LoginView : View {
     @StateObject private var lblViewModel = LblViewModel()
-    @State var userName: String = ""
+    @State var name: String = ""
     @State var password: String = ""
     @State var showPwd = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+        
     var isCanLogin: Bool {
-        userName.count > 0 &&
+        name.count > 0 &&
         password.count > 0
     }
     var body: some View {
         VStack {
             HStack {
                 Image(systemName: "person")
-                TextField("请输入用户名", text: $userName, onCommit: {
+                TextField("请输入用户名", text: $name, onCommit: {
                     
                 })
             }
@@ -38,7 +40,8 @@ struct LoginView : View {
             }
             Divider()
             Button(action: {
-                print("login action")
+                LoginManager.shared.login(name: name , password: password)
+//                self.presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Login")
                     .foregroundColor(.white)

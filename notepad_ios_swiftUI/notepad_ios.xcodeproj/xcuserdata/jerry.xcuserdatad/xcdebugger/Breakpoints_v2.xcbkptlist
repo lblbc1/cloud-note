@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "CF42C7CD-9CE6-411B-B5F5-2CAB9F8265C0"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95816814-6C13-4228-930A-D76219AEE96D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "notepad_ios/views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "95816814-6C13-4228-930A-D76219AEE96D - 638c53b85b41e6c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Image, SwiftUI.TextField&lt;SwiftUI.Text&gt;)&gt;&gt;, SwiftUI.Divider, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Image, SwiftUI._ConditionalContent&lt;SwiftUI.TextField&lt;SwiftUI.Text&gt;, SwiftUI.SecureField&lt;SwiftUI.Text&gt;&gt;, SwiftUI.Button&lt;SwiftUI.Image&gt;)&gt;&gt;, SwiftUI.Divider, &lt;&lt;opaque return type of SwiftUI.View.disabled(Swift.Bool) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in notepad_ios.LoginView.body.getter : some"
+                  moduleName = "notepad_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerry/projects/mine/gitee/demos/notepads-cloud/notepad_ios_swiftUI/notepad_ios/views/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "1325">
+               </Location>
+               <Location
+                  uuid = "95816814-6C13-4228-930A-D76219AEE96D - 9f525f2e6010cdf8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 () -&gt; SwiftUI.Text in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Image, SwiftUI.TextField&lt;SwiftUI.Text&gt;)&gt;&gt;, SwiftUI.Divider, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Image, SwiftUI._ConditionalContent&lt;SwiftUI.TextField&lt;SwiftUI.Text&gt;, SwiftUI.SecureField&lt;SwiftUI.Text&gt;&gt;, SwiftUI.Button&lt;SwiftUI.Image&gt;)&gt;&gt;, SwiftUI.Divider, &lt;&lt;opaque return type of SwiftUI.View.disabled(Swift.Bool) -&gt; some&gt;&gt;.0, SwiftUI.Spacer)&gt; in notepad_ios.LoginView.body.getter : some"
+                  moduleName = "notepad_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerry/projects/mine/gitee/demos/notepads-cloud/notepad_ios_swiftUI/notepad_ios/views/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "546">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C716C79-51A7-49A3-AAF0-43A4F6401406"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "notepad_ios/models/LoginManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "login(name:password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
