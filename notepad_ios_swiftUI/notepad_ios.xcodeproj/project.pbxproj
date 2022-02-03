@@ -33,8 +33,8 @@
 		C4163F6E27AA843400D136E0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C4163F7027AA910500D136E0 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		C4163F7227AA919400D136E0 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		C4163F7627AAA29000D136E0 /* QueryNoteResp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryNoteResp.swift; sourceTree = "<group>"; };
-		C4163F7827AAB57E00D136E0 /* LoginResp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResp.swift; sourceTree = "<group>"; };
+		C4163F7627AAA29000D136E0 /* QueryNoteResp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QueryNoteResp.swift; path = ../QueryNoteResp.swift; sourceTree = "<group>"; };
+		C4163F7827AAB57E00D136E0 /* LoginResp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginResp.swift; path = ../LoginResp.swift; sourceTree = "<group>"; };
 		C49A415E27429AF900F4714C /* notepad_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notepad_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49A416127429AF900F4714C /* notepad_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notepad_iosApp.swift; sourceTree = "<group>"; };
 		C49A416527429AFA00F4714C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,11 +81,19 @@
 		C4163F6727AA7B4200D136E0 /* newwork */ = {
 			isa = PBXGroup;
 			children = (
+				C4613E1027ABD3A90041ED20 /* bean */,
 				C4163F6827AA7B5000D136E0 /* LblAPI.swift */,
+			);
+			name = newwork;
+			sourceTree = "<group>";
+		};
+		C4613E1027ABD3A90041ED20 /* bean */ = {
+			isa = PBXGroup;
+			children = (
 				C4163F7827AAB57E00D136E0 /* LoginResp.swift */,
 				C4163F7627AAA29000D136E0 /* QueryNoteResp.swift */,
 			);
-			name = newwork;
+			path = bean;
 			sourceTree = "<group>";
 		};
 		C49A415527429AF900F4714C = {
