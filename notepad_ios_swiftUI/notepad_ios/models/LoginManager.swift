@@ -12,7 +12,7 @@ class LoginManager{
     private var storeName = "notepad"
     
     var userInfo : UserInfo?
-     
+    
     private init() { load() }
     
     func load(){
@@ -20,23 +20,30 @@ class LoginManager{
             self.userInfo = try! PropertyListDecoder().decode(UserInfo.self, from: data)
         }
     }
+    func isLoggedIn()  -> Bool{
+        return userInfo != nil
+    }
     
     func save(userInfo : UserInfo){
         UserDefaults.standard.set(try? PropertyListEncoder().encode(userInfo),forKey: storeName)
     }
     
-    func login(name:String,password:String) {
+    func login(name: String, password: String, callback: @escaping(()->())) {
         let params = [
             "name": name,
-            "password": "1"
+            "password": password
         ]
-        
+      
         LblProvider.request(.login(params:params)) { result in
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)
                 if let mappedObject = JSONDeserializer<LoginResp>.deserializeFrom(json: json.description) { // 从字符串转换为对象实例
                     self.userInfo = mappedObject.data
+                    if(self.userInfo != nil){
+                        self.save(userInfo: self.userInfo!)
+                    }
+                    callback()
                 }
             }
         }

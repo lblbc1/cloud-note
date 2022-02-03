@@ -4,8 +4,9 @@
 // 公众号：蓝不蓝编程
 
 import Foundation
+import HandyJSON
 
-struct UserInfo: Hashable,Codable,Identifiable{
-    let id = 0
-    var token:String
+struct UserInfo: HandyJSON,Codable{
+    var id = 0
+    var token:String?
 }
