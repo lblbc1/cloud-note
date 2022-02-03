@@ -27,7 +27,7 @@ extension LblAPI: TargetType {
         case .queryData: return "note/api/list"
         }
     }
-
+    
     var method: Moya.Method {
         switch self {
         case .login:
@@ -49,6 +49,12 @@ extension LblAPI: TargetType {
     
     var sampleData: Data { return "".data(using: String.Encoding.utf8)! }
     var headers: [String : String]? {
-        return ["Content-Type":"application/json;charset=utf-8"]
+        let userInfo = LoginManager.shared.userInfo
+        if(userInfo != nil){
+            return ["Authorization":"Bearer "+userInfo!.token,
+                    "Content-Type":"application/json;charset=utf-8"]
+        }else{
+            return ["Content-Type":"application/json;charset=utf-8"]
+        }
     }
 }

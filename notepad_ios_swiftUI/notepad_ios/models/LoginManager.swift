@@ -20,6 +20,7 @@ class LoginManager{
             self.userInfo = try! PropertyListDecoder().decode(UserInfo.self, from: data)
         }
     }
+    
     func isLoggedIn()  -> Bool{
         return userInfo != nil
     }

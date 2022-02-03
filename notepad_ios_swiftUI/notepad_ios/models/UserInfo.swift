@@ -8,5 +8,5 @@ import HandyJSON
 
 struct UserInfo: HandyJSON,Codable{
     var id = 0
-    var token:String?
+    var token:String = ""
 }
