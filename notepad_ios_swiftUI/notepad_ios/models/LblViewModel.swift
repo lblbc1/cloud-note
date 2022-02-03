@@ -11,7 +11,6 @@ class LblViewModel: ObservableObject {
     @Published var noteList:[Note] = []
     
     func queryData() {
-        // 首页推荐接口请求
         LblProvider.request(.queryData) { result in
             if case let .success(response) = result {
                 let data = try? response.mapJSON()

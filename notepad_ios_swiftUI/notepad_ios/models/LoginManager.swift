@@ -4,7 +4,8 @@
 // 公众号：蓝不蓝编程
 
 import Foundation
-
+import SwiftyJSON
+import HandyJSON
 
 class LoginManager{
     static let shared = LoginManager()
@@ -29,14 +30,15 @@ class LoginManager{
             "name": name,
             "password": "1"
         ]
-//        LblAPI.shared.post(url: "api/login", params: params, headers: nil) { (result: Result<LoginResp, LblAPIService.APIError>) in
-//            switch result {
-//            case let .success(response):
-//                self.userInfo = response.data
-//                break
-//            case .failure(_):
-//                break
-//            }
-//        }
+        
+        LblProvider.request(.login(params:params)) { result in
+            if case let .success(response) = result {
+                let data = try? response.mapJSON()
+                let json = JSON(data!)
+                if let mappedObject = JSONDeserializer<LoginResp>.deserializeFrom(json: json.description) { // 从字符串转换为对象实例
+                    self.userInfo = mappedObject.data
+                }
+            }
+        }
     }
 }

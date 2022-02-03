@@ -12,36 +12,43 @@ let LblProvider = MoyaProvider<LblAPI>()
 
 
 enum LblAPI {
+    case login(params: [String:Any])
     case queryData
 }
 
 extension LblAPI: TargetType {
     public var baseURL: URL {
-        return URL(string: "https://gitee.com/lblbc")!
+        return URL(string: "http://192.168.31.10:8080/")!
     }
     
     var path: String {
-        return "/swiftui_demos/raw/master/networkDemo/simpleNetworkDemo/data.json"
-//        switch self {
-//        case .queryData: return "/swiftui_demos/raw/master/networkDemo/simpleNetworkDemo/data.json"
-//        }
+        switch self {
+        case .login: return "api/login"
+        case .queryData: return "note/api/list"
+        }
+    }
+
+    var method: Moya.Method {
+        switch self {
+        case .login:
+            return .post
+        case .queryData:
+            return .get
+        }
     }
     
-    var method: Moya.Method { return .get }
     var task: Task {
-        var parmeters:[String:Any] = [:]
-//        switch self {
-//        case .queryData:
-//            parmeters = [
-//                "device":"iPhone",
-//                "appid":0,]
-//        }
-
-        
-        return .requestParameters(parameters: parmeters, encoding: URLEncoding.default)
+        switch self {
+        case .login(let params):
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+        case .queryData:
+            return .requestPlain
+        }
     }
+    
     
     var sampleData: Data { return "".data(using: String.Encoding.utf8)! }
-    var headers: [String : String]? { return nil }
+    var headers: [String : String]? {
+        return ["Content-Type":"application/json;charset=utf-8"]
+    }
 }
-
