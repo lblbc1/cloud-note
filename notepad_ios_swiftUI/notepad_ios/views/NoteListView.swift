@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct NoteList : View {
+struct NoteListView : View {
     @EnvironmentObject var userData: UserData
     @StateObject private var lblViewModel = LblViewModel()
     
@@ -50,7 +50,7 @@ struct NoteList : View {
 struct NoteList_Previews : PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone SE", "iPhone XS Max"], id: \.self) { deviceName in
-            NoteList()
+            NoteListView()
                 .environmentObject(UserData())
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)

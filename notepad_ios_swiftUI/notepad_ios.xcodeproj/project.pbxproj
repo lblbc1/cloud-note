@@ -21,7 +21,7 @@
 		C49A417227429B4600F4714C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A417127429B4600F4714C /* Note.swift */; };
 		C49A417427429B9C00F4714C /* NoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A417327429B9C00F4714C /* NoteData.swift */; };
 		C49A417627429D2700F4714C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A417527429D2700F4714C /* UserData.swift */; };
-		C49A417827429E0700F4714C /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A417727429E0700F4714C /* NoteList.swift */; };
+		C49A417827429E0700F4714C /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A417727429E0700F4714C /* NoteListView.swift */; };
 		C49A417A27429E9100F4714C /* NoteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A417927429E9100F4714C /* NoteDetail.swift */; };
 		C49A417D2742A07C00F4714C /* NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A417C2742A07C00F4714C /* NoteRow.swift */; };
 /* End PBXBuildFile section */
@@ -42,7 +42,7 @@
 		C49A417127429B4600F4714C /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		C49A417327429B9C00F4714C /* NoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteData.swift; sourceTree = "<group>"; };
 		C49A417527429D2700F4714C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		C49A417727429E0700F4714C /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
+		C49A417727429E0700F4714C /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
 		C49A417927429E9100F4714C /* NoteDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetail.swift; sourceTree = "<group>"; };
 		C49A417C2742A07C00F4714C /* NoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRow.swift; sourceTree = "<group>"; };
 		E19BC134D76FBAD0B350DF89 /* Pods-notepad_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notepad_ios.debug.xcconfig"; path = "Target Support Files/Pods-notepad_ios/Pods-notepad_ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		C49A417027429B2700F4714C /* views */ = {
 			isa = PBXGroup;
 			children = (
-				C49A417727429E0700F4714C /* NoteList.swift */,
+				C49A417727429E0700F4714C /* NoteListView.swift */,
 				C49A417927429E9100F4714C /* NoteDetail.swift */,
 				C49A417C2742A07C00F4714C /* NoteRow.swift */,
 				C4163F6E27AA843400D136E0 /* LoginView.swift */,
@@ -278,7 +278,7 @@
 				C4163F6F27AA843400D136E0 /* LoginView.swift in Sources */,
 				C4163F7927AAB57E00D136E0 /* LoginResp.swift in Sources */,
 				C49A417D2742A07C00F4714C /* NoteRow.swift in Sources */,
-				C49A417827429E0700F4714C /* NoteList.swift in Sources */,
+				C49A417827429E0700F4714C /* NoteListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
