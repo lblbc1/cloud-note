@@ -8,7 +8,7 @@ import SwiftUI
 struct NoteListView : View {
     @EnvironmentObject var userData: UserData
     @StateObject private var lblViewModel = LblViewModel()
-    @State private var isAddPresented: Bool = false
+    @State private var isLoginViewPresented: Bool = false
     
     let screnDelegate: UIWindowSceneDelegate? = {
         var uiScreen: UIScene?
@@ -28,13 +28,13 @@ struct NoteListView : View {
             }
             .navigationBarTitle(Text("记事本-蓝不蓝编程"), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: self.createNote, label: { Text("新建") }))
-        }.sheet(isPresented: $isAddPresented, content: {
-            LoginView(isAddPresented: $isAddPresented)
+        }.sheet(isPresented: $isLoginViewPresented, content: {
+            LoginView(isLoginViewPresented: $isLoginViewPresented)
         })
             .onAppear {
                 if(userData.userInfo == nil)
                 {
-                    isAddPresented = true
+                    isLoginViewPresented = true
                 }else{
                     lblViewModel.queryData()
                 }

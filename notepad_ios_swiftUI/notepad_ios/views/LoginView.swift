@@ -1,12 +1,11 @@
 import SwiftUI
 
 struct LoginView : View {
-    @Binding var isAddPresented: Bool
+    @Binding var isLoginViewPresented: Bool
     @StateObject private var lblViewModel = LblViewModel()
     @State var name: String = "lbl"
     @State var password: String = "1"
     @State var showPwd = false
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var isCanLogin: Bool {
         name.count > 0 &&
@@ -36,7 +35,7 @@ struct LoginView : View {
             }
             Divider()
             Button(action: {
-                isAddPresented = false
+                isLoginViewPresented = false
                 LoginManager.shared.login(name: name , password: password){
                     print("ddddddd")
                 }
@@ -57,9 +56,9 @@ struct LoginView : View {
 
 //#if DEBUG
 //struct LoginView_Previews : PreviewProvider {
-//    @State private var isAddPresented: Bool = true
+//    @State private var isLoginViewPresented: Bool = true
 //    static var previews: some View {
-//        LoginView(isAddPresented : $isAddPresented)
+//        LoginView(isAddPresented : $isLoginViewPresented)
 //    }
 //}
 //#endif

@@ -7,6 +7,6 @@ import Foundation
 import HandyJSON
 
 struct Note: HandyJSON,Codable,Identifiable {
-    var id = UUID()
+    var id = ""
     var content:String = ""
 }
