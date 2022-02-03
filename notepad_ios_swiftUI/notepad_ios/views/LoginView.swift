@@ -37,7 +37,7 @@ struct LoginView : View {
             Button(action: {
                 isLoginViewPresented = false
                 LoginManager.shared.login(name: name , password: password){
-                    print("ddddddd")
+                   
                 }
             }) {
                     Text("登录").foregroundColor(.white)
