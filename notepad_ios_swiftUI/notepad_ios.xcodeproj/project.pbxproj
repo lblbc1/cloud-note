@@ -82,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				C4163F6827AA7B5000D136E0 /* LblAPI.swift */,
+				C4163F7827AAB57E00D136E0 /* LoginResp.swift */,
+				C4163F7627AAA29000D136E0 /* QueryNoteResp.swift */,
 			);
 			name = newwork;
 			sourceTree = "<group>";
@@ -134,8 +136,6 @@
 				C49A417527429D2700F4714C /* UserData.swift */,
 				C4163F7027AA910500D136E0 /* LoginManager.swift */,
 				C4163F7227AA919400D136E0 /* UserInfo.swift */,
-				C4163F7627AAA29000D136E0 /* QueryNoteResp.swift */,
-				C4163F7827AAB57E00D136E0 /* LoginResp.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
