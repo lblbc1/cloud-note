@@ -21,13 +21,15 @@ struct NoteListView : View {
     var body: some View {
         NavigationView {
             List(lblViewModel.noteList) { note in
-                NavigationLink(destination: NoteDetail(note: note)
+                NavigationLink(destination: NoteDetailView(note: note)
                                 .environmentObject(self.userData)) {
-                    NoteRow(note: note)
+                    NoteRowView(note: note)
                 }
             }
             .navigationBarTitle(Text("记事本-蓝不蓝编程"), displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: self.createNote, label: { Text("新建") }))
+            .navigationBarItems(trailing: NavigationLink(destination: AddNoteView()) {
+                Text("新建")
+            })
         }.sheet(isPresented: $isLoginViewPresented, content: {
             LoginView(isLoginViewPresented: $isLoginViewPresented)
         })
@@ -41,13 +43,15 @@ struct NoteListView : View {
             }
     }
     
-    private func createNote() {
-        //        var numberThree: Int = Int(arc4random_uniform(100))
-        //        print(numberThree)
-        
-        //        let newNote = Note(text: String(numberThree))
-        //        self.userData.notes.insert(newNote, at: 0)
+    struct NoteRowView: View {
+        var note: Note
+        var body: some View {
+            HStack {
+                Text(note.content)
+            }
+        }
     }
+    
 }
 
 #if DEBUG

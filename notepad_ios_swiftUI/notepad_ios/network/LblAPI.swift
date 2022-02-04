@@ -14,6 +14,8 @@ let LblProvider = MoyaProvider<LblAPI>()
 enum LblAPI {
     case login(params: [String:Any])
     case queryData
+    case addData(params: [String:Any])
+    case modifyData(params: [String:Any])
 }
 
 extension LblAPI: TargetType {
@@ -25,12 +27,14 @@ extension LblAPI: TargetType {
         switch self {
         case .login: return "api/login"
         case .queryData: return "note/api/list"
+        case .addData: return "note/api/add"
+        case .modifyData: return "note/api/moidify"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login:
+        case .login,.addData,.modifyData:
             return .post
         case .queryData:
             return .get
@@ -39,7 +43,7 @@ extension LblAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .login(let params):
+        case .login(let params),.addData(let params),.modifyData(let params):
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case .queryData:
             return .requestPlain

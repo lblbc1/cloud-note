@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct NoteDetail: View {
+struct NoteDetailView: View {
     @EnvironmentObject var userData: UserData
     var note: Note
     private var text: State<String>
@@ -38,9 +38,9 @@ struct NoteDetail: View {
     }
 }
 
-struct NoteDetail_Previews: PreviewProvider {
+struct NoteDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteDetail(note: NoteData.shared.notes[0])
+        NoteDetailView(note: NoteData.shared.notes[0])
             .environmentObject(UserData())
     }
 }
