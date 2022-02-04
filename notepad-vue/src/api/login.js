@@ -11,7 +11,7 @@ import qs from 'qs'
 export const login = (form) => {
     window.qs = qs;
     return request({
-        url: baseUrl + 'api/login',
+        url: baseUrl + 'user/login',
         method: 'post',
         data: {
             name: form.username,
@@ -24,7 +24,7 @@ export const login = (form) => {
 export const register = (form) => {
     window.qs = qs;
     return request({
-        url: baseUrl + 'api/register',
+        url: baseUrl + 'user/register',
         method: 'post',
         data: {
             name: form.username,

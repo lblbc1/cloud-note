@@ -9,7 +9,7 @@ import {baseUrl} from "../config/env";
 
 export const addNote = (form) => {
     return request({
-        url: baseUrl + 'note/api/add',
+        url: baseUrl + 'note/add',
         method: 'post',
         data: JSON.stringify(form),
         headers: {"Content-Type": "application/json"},
@@ -18,7 +18,7 @@ export const addNote = (form) => {
 
 export const modifyNote = (form) => {
     return request({
-        url: baseUrl + 'note/api/modify',
+        url: baseUrl + 'note/modify',
         method: 'post',
         data: JSON.stringify(form),
         headers: {"Content-Type": "application/json"},
@@ -27,21 +27,21 @@ export const modifyNote = (form) => {
 
 export const listNote = () => {
     return request({
-        url: baseUrl + 'note/api/list',
+        url: baseUrl + 'note/list',
         method: 'get',
     })
 };
 
 export const queryNote = (noteId) => {
     return request({
-        url: baseUrl + 'note/api/query/'+noteId,
+        url: baseUrl + 'note/query/'+noteId,
         method: 'get',
     })
 };
 
 export const delNote = (noteId) => {
     return request({
-        url: baseUrl + 'note/api/del/'+noteId,
+        url: baseUrl + 'note/del/'+noteId,
         method: 'get',
     })
 };

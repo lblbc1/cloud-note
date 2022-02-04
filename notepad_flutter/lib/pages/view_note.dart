@@ -32,7 +32,7 @@ class _ViewNotePageState extends State<ViewNotePage> {
   }
 
   loadData() async {
-    String url = "note/api/query/$_noteId";
+    String url = "note/query/$_noteId";
     HttpManager.getInstance().get(url).then((resp) {
       Map<String, dynamic> result = new Map<String, dynamic>.from(resp);
       setState(() {

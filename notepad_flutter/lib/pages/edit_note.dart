@@ -32,7 +32,7 @@ class _EditNotePageState extends State<EditNotePage> {
   }
 
   loadData() async {
-    String url = "note/api/query/$_noteId";
+    String url = "note/query/$_noteId";
     HttpManager.getInstance().get(url).then((resp) {
       Map<String, dynamic> result = new Map<String, dynamic>.from(resp);
       setState(() {
@@ -85,7 +85,7 @@ class _EditNotePageState extends State<EditNotePage> {
   }
 
   modifyNote() async {
-    String url = "note/api/modify";
+    String url = "note/modify";
     String content = _contentController.text;
     HttpManager.getInstance().post(url, data: {"id": widget.noteId, "content": content}).then((resp) {
       Navigator.of(context).popUntil((route) => route.isFirst); //回到首页

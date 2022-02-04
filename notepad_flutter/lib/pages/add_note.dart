@@ -60,7 +60,7 @@ class _AddNotePageState extends State<AddNotePage> {
   }
 
   addNote() async {
-    String url = "note/api/add";
+    String url = "note/add";
     String content = _contentController.text;
     HttpManager.getInstance().post(url, data: {"content": content}).then((resp) {
       Navigator.pop(context);

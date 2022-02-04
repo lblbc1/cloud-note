@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   login() async {
-    String url = "api/login";
+    String url = "user/login";
     HttpManager.getInstance()
         .post(url, data: {"name": _nameController.text, "password": _passwordController.text}).then((resp) async {
       SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
