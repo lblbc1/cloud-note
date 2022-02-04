@@ -18,32 +18,26 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    @POST("api/login")
+    @POST("user/login")
     @Headers("ignoreToken:true")
     suspend fun login(@Body request: LoginRequest): Result<LoginResp?>?
 
-    @POST("api/register")
+    @POST("user/register")
     @Headers("ignoreToken:true")
     suspend fun register(@Body request: RegisterRequest): Result<RegisterResp?>?
 
-    @GET("note/api/list")
+    @GET("note/list")
     suspend fun getDataList(): Result<List<Note>?>?
 
-    @GET("note/api/query/{noteId}")
+    @GET("note/query/{noteId}")
     suspend fun queryData(@Path("noteId") noteId: Long): Result<Note?>?
 
-    @GET("note/api/del/{noteId}")
+    @GET("note/del/{noteId}")
     suspend fun deleteData(@Path("noteId") noteId: Long): Result<String?>?
 
-    @POST("note/api/add")
+    @POST("note/add")
     suspend fun addData(@Body request: AddNoteRequest): Result<String?>?
 
-    @POST("note/api/modify")
+    @POST("note/modify")
     suspend fun modifyData(@Body request: ModifyNoteRequest): Result<String?>?
-
-
-//    @GET("/article/list/{page}/json")
-//    suspend fun getArticleList(@Path("page") page: Int): ApiResult<Pagination<Article>>
-
-
 }
