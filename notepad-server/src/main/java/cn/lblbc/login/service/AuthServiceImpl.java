@@ -36,10 +36,12 @@ public class AuthServiceImpl implements AuthService {
     private AuthMapper authMapper;
 
     @Override
-    public Resp<String> register(UserDetail userDetail) {
+    public Resp<LoginResp> register(UserDetail userDetail) {
         final String username = userDetail.getUsername();
+        Resp<LoginResp> resp = new Resp<>();
         if (authMapper.findUserByName(username) != null) {
-            return new Resp<>(ERROR, "用户已存在");
+            resp = new Resp<>(ERROR, "用户已存在");
+            return resp;
         }
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         final String rawPassword = userDetail.getPassword();
@@ -47,7 +49,8 @@ public class AuthServiceImpl implements AuthService {
         authMapper.insert(userDetail);
         long roleId = userDetail.getRole().getId();
         authMapper.insertRole(userDetail.getId(), roleId);
-        return new Resp<>();
+
+        return login(username,rawPassword);
     }
 
     @Override

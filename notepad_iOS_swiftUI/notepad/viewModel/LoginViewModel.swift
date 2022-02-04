@@ -29,22 +29,43 @@ class LoginViewModel{
         UserDefaults.standard.set(try? PropertyListEncoder().encode(userInfo),forKey: storeName)
     }
     
-    func login(name: String, password: String, callback: @escaping(()->())) {
+    func login(name: String, password: String, callback: @escaping((Bool,String)->())) {
         let params = [
             "name": name,
             "password": password
         ]
-      
+        
         LblProvider.request(.login(params:params)) { result in
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)
-                if let mappedObject = JSONDeserializer<LoginResp>.deserializeFrom(json: json.description) { // 从字符串转换为对象实例
-                    self.userInfo = mappedObject.data
+                if let resp = JSONDeserializer<LoginResp>.deserializeFrom(json: json.description) {
+                    self.userInfo = resp.data
                     if(self.userInfo != nil){
                         self.save(userInfo: self.userInfo!)
                     }
-                    callback()
+                    callback(resp.isSuccess(),resp.msg)
+                }
+            }
+        }
+    }
+    
+    func register(name: String, password: String, callback: @escaping((Bool,String)->())) {
+        let params = [
+            "name": name,
+            "password": password
+        ]
+        
+        LblProvider.request(.register(params:params)) { result in
+            if case let .success(response) = result {
+                let data = try? response.mapJSON()
+                let json = JSON(data!)
+                if let resp = JSONDeserializer<LoginResp>.deserializeFrom(json: json.description) {
+                    self.userInfo = resp.data
+                    if(self.userInfo != nil){
+                        self.save(userInfo: self.userInfo!)
+                    }
+                    callback(resp.isSuccess(),resp.msg)
                 }
             }
         }

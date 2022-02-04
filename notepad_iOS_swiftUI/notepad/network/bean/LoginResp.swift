@@ -9,4 +9,8 @@ struct LoginResp: HandyJSON,Codable{
     var code = 0
     var msg : String = ""
     var data : UserInfo?
+    
+    func isSuccess() -> Bool{
+        return code == 0
+    }
 }

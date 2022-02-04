@@ -15,8 +15,8 @@ class LblViewModel: ObservableObject {
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)
-                if let mappedObject = JSONDeserializer<QueryNoteResp>.deserializeFrom(json: json.description) { // 从字符串转换为对象实例
-                    self.noteList = mappedObject.data
+                if let resp = JSONDeserializer<QueryNoteResp>.deserializeFrom(json: json.description) { // 从字符串转换为对象实例
+                    self.noteList = resp.data
                 }
             }
         }
@@ -31,7 +31,7 @@ class LblViewModel: ObservableObject {
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)
-                if let mappedObject = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
+                if let resp = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
                     callback()
                 }
             }
@@ -48,7 +48,7 @@ class LblViewModel: ObservableObject {
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)
-                if let mappedObject = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
+                if let resp = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
                     callback()
                 }
             }
@@ -61,7 +61,7 @@ class LblViewModel: ObservableObject {
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)
-                if let mappedObject = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
+                if let resp = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
                     callback()
                 }
             }

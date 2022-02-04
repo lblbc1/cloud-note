@@ -6,6 +6,7 @@ struct LoginView : View {
     @StateObject private var lblViewModel = LblViewModel()
     @State var name: String = "lbl"
     @State var password: String = "1"
+    @State var error: String = ""
     @State var showPwd = false
     
     var isCanLogin: Bool {
@@ -15,6 +16,7 @@ struct LoginView : View {
     
     var body: some View {
         VStack {
+            Text(error).foregroundColor(.red)
             HStack {
                 Image(systemName: "person")
                 TextField("请输入用户名", text: $name)
@@ -35,18 +37,44 @@ struct LoginView : View {
                 
             }
             Divider()
-            Button(action: {
-                isLoginViewPresented = false
-                LoginViewModel.shared.login(name: name , password: password){
-                    refreshViewModel.shouldRefresh = true
-                }
-            }) {
-                    Text("登录").foregroundColor(.white)
-                }
-                .frame(width: 100, height: 45, alignment: .center)
-                .background(isCanLogin ? Color.blue: Color.gray)
-                .cornerRadius(10)
-                .disabled(!isCanLogin)
+            HStack{
+                Button(action: {
+                    error = ""
+                    LoginViewModel.shared.login(name: name , password: password){isSuccess,msg in
+                        if(isSuccess){
+                            isLoginViewPresented = false
+                            refreshViewModel.shouldRefresh = true
+                        }else{
+                            error = msg
+                        }
+                    }
+                }) {
+                        Text("登录").foregroundColor(.white)
+                    }
+                    .frame(width: 100, height: 45, alignment: .center)
+                    .background(isCanLogin ? Color.blue: Color.gray)
+                    .cornerRadius(10)
+                    .disabled(!isCanLogin)
+                
+                Button(action: {
+                    error = ""
+                    LoginViewModel.shared.register(name: name , password: password){isSuccess,msg in
+                        if(isSuccess){
+                            isLoginViewPresented = false
+                            refreshViewModel.shouldRefresh = true
+                        }else{
+                            error = msg
+                        }
+                    }
+                }) {
+                        Text("注册").foregroundColor(.white)
+                    }
+                    .frame(width: 100, height: 45, alignment: .center)
+                    .background(isCanLogin ? Color.blue: Color.gray)
+                    .cornerRadius(10)
+                    .disabled(!isCanLogin)
+            }
+            
             Spacer()
         }
         .padding(.top, 100)
