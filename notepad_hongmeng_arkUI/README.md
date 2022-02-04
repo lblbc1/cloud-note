@@ -25,7 +25,7 @@ DevEco Studio
 - index.ets 主界面
 
 # 完整源代码
-[https://gitee.com/hspbc/stopwatchs](https://gitee.com/hspbc/stopwatchs)
+[https://gitee.com/lblbc/stopwatchs](https://gitee.com/lblbc/stopwatchs)
 ![](https://img-blog.csdnimg.cn/img_convert/49aae95374ed15428a1e220967380566.png)
 
 # 编程系列
