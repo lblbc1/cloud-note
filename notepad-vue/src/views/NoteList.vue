@@ -68,11 +68,7 @@ export default {
     listNote() {
       let _this = this;
       this.listLoading = true;
-      let queryUserId = this.$route.query.userId
-      if (queryUserId === undefined) {
-        queryUserId = ""
-      }
-      listNote(queryUserId).then(res => {
+      listNote().then(res => {
         this.loading2 = false;
         _this.listLoading = false;
         _this.articleLists = res.data.data;

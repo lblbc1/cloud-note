@@ -25,7 +25,7 @@ export const modifyNote = (form) => {
     })
 };
 
-export const listNote = (userId) => {
+export const listNote = () => {
     return request({
         url: baseUrl + 'note/api/list',
         method: 'get',
