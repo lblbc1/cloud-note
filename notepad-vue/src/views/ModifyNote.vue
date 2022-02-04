@@ -53,8 +53,7 @@ export default {
     async modifyNote() {
       let _this = this;
       modifyNote(_this.form).then(res => {
-        let userId = sessionStorage.getItem('user_id')
-        this.$router.push("/note/list/?userId="+userId);
+        this.$router.push("/note/list/");
       }).catch(error => {
         alert('更新失败');
         console.log(error);

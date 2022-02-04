@@ -68,7 +68,7 @@ export default {
           const userId = res.data.data.id
           sessionStorage.setItem('user_token', token)
           sessionStorage.setItem('user_id', userId)
-          this.$router.push("/note/list/?userId=" + userId);
+          this.$router.push("/note/list/");
         } else {
           this.msg = res.data.msg;
           this.dialogVisible = true;

@@ -52,8 +52,7 @@ export default {
     async addNote() {
       let _this = this;
       addNote(_this.form).then(res => {
-        let userId = sessionStorage.getItem('user_id')
-        this.$router.push("/note/list/?userId="+userId);
+        this.$router.push("/note/list/");
       }).catch(error => {
         alert('发布失败');
         console.log(error);
