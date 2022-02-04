@@ -19,13 +19,13 @@ public class NoteRestController {
     @Autowired
     private JwtUtils jwtUtils;
 
-    @GetMapping(value = "api/del/{id}")
+    @GetMapping(value = "del/{id}")
     public Resp<String> delData(@PathVariable long id) {
         noteService.delete(id);
         return new Resp<>();
     }
 
-    @PostMapping(value = "api/add")
+    @PostMapping(value = "add")
     public Resp<String> addData(@RequestBody Note note, @RequestHeader("Authorization") String authorization) {
         final String authTokenPrefix = "Bearer ";
         long userId = 0;
@@ -37,13 +37,13 @@ public class NoteRestController {
         return new Resp<>();
     }
 
-    @PostMapping(value = "api/modify")
+    @PostMapping(value = "modify")
     public Resp<String> modifyData(@RequestBody Note note) {
         noteService.modify(note.getId(), note.getContent());
         return new Resp<>();
     }
 
-    @GetMapping("api/list")
+    @GetMapping("list")
     public Resp<List<Note>> list(@RequestHeader("Authorization") String authorization) {
         Resp<List<Note>> resp = new Resp<>();
         int userId = getUserIdFromHeader(authorization);
@@ -51,7 +51,7 @@ public class NoteRestController {
         return resp;
     }
 
-    @GetMapping("api/query/{noteId}")
+    @GetMapping("query/{noteId}")
     public Resp<Note> query(@PathVariable long noteId) {
         Resp<Note> resp = new Resp<>();
         resp.setData(noteService.query(noteId));

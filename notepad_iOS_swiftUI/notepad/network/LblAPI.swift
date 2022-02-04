@@ -27,12 +27,12 @@ extension LblAPI: TargetType {
     
     var path: String {
         switch self {
-        case .login: return "api/login"
-        case .register: return "api/register"
-        case .queryData: return "note/api/list"
-        case .addData: return "note/api/add"
-        case .modifyData: return "note/api/modify"
-        case .deleteData(let params): return "note/api/del/"+params
+        case .login: return "user/login"
+        case .register: return "user/register"
+        case .queryData: return "note/list"
+        case .addData: return "note/add"
+        case .modifyData: return "note/modify"
+        case .deleteData(let params): return "note/del/"+params
         }
     }
     
