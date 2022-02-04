@@ -46,11 +46,11 @@ struct AddNoteView: View {
     }
 }
 
-//struct AddNoteView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            AddNoteView()
-//        }
-//        .previewLayout(.fixed(width: 300, height: 50))
-//    }
-//}
+struct AddNoteView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            AddNoteView(rereshObject:RereshObject())
+        }
+        .previewLayout(.fixed(width: 300, height: 50))
+    }
+}
