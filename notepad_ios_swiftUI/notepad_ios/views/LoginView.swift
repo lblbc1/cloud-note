@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct LoginView : View {
+    var refreshViewModel: RefreshViewModel
     @Binding var isLoginViewPresented: Bool
     @StateObject private var lblViewModel = LblViewModel()
     @State var name: String = "lbl"
@@ -36,8 +37,8 @@ struct LoginView : View {
             Divider()
             Button(action: {
                 isLoginViewPresented = false
-                LoginManager.shared.login(name: name , password: password){
-                   
+                LoginViewModel.shared.login(name: name , password: password){
+                    refreshViewModel.shouldRefresh = true
                 }
             }) {
                     Text("登录").foregroundColor(.white)

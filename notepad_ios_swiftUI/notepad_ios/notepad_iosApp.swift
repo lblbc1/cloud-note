@@ -9,7 +9,7 @@ import SwiftUI
 struct notepad_iosApp: App {
     var body: some Scene {
         WindowGroup {
-            NoteListView().environmentObject(UserData())
+            NoteListView()
         }
     }
 }

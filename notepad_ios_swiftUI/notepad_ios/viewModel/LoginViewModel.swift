@@ -7,8 +7,8 @@ import Foundation
 import SwiftyJSON
 import HandyJSON
 
-class LoginManager{
-    static let shared = LoginManager()
+class LoginViewModel{
+    static let shared = LoginViewModel()
     private var storeName = "notepad"
     
     var userInfo : UserInfo?

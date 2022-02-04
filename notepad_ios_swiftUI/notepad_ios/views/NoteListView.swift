@@ -6,7 +6,6 @@
 import SwiftUI
 
 struct NoteListView : View {
-    @EnvironmentObject var userData: UserData
     @StateObject private var lblViewModel = LblViewModel()
     @State private var isLoginViewPresented: Bool = false
     @StateObject private var refreshViewModel = RefreshViewModel()
@@ -22,8 +21,7 @@ struct NoteListView : View {
     var body: some View {
         NavigationView {
             List(lblViewModel.noteList) { note in
-                NavigationLink(destination: EditNoteView(refreshViewModel: refreshViewModel, note: note)
-                                .environmentObject(self.userData)) {
+                NavigationLink(destination: EditNoteView(refreshViewModel: refreshViewModel, note: note)) {
                     NoteRowView(note: note)
                 }
             }
@@ -32,14 +30,14 @@ struct NoteListView : View {
                 Text("新建")
             })
         }.sheet(isPresented: $isLoginViewPresented, content: {
-            LoginView(isLoginViewPresented: $isLoginViewPresented)
+            LoginView(refreshViewModel: refreshViewModel, isLoginViewPresented: $isLoginViewPresented)
         })
             .onAppear {
-                if(userData.userInfo == nil)
+                if(LoginViewModel.shared.isLoggedIn())
                 {
-                    isLoginViewPresented = true
-                }else{
                     lblViewModel.queryData()
+                }else{
+                    isLoginViewPresented = true
                 }
             }
             .onChange(of: refreshViewModel.shouldRefresh, perform: { value in
@@ -65,7 +63,7 @@ struct NoteListView : View {
 #if DEBUG
 struct NoteList_Previews : PreviewProvider {
     static var previews: some View {
-        NoteListView().environmentObject(UserData())
+        NoteListView()
     }
 }
 #endif
