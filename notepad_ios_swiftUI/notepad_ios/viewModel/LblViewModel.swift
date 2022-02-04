@@ -22,14 +22,47 @@ class LblViewModel: ObservableObject {
         }
     }
     
-    func deleteData(id:String)
+    func addData(content: String, callback: @escaping(()->())){
+        let params = [
+            "content": content
+        ]
+        
+        LblProvider.request(.addData(params:params)) { result in
+            if case let .success(response) = result {
+                let data = try? response.mapJSON()
+                let json = JSON(data!)
+                if let mappedObject = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
+                    callback()
+                }
+            }
+        }
+    }
+    
+    func modifyData(id:String, content: String, callback: @escaping(()->())){
+        let params = [
+            "id": id,
+            "content": content
+        ]
+        
+        LblProvider.request(.modifyData(params:params)) { result in
+            if case let .success(response) = result {
+                let data = try? response.mapJSON()
+                let json = JSON(data!)
+                if let mappedObject = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
+                    callback()
+                }
+            }
+        }
+    }
+    
+    func deleteData(id:String, callback: @escaping(()->()))
     {
         LblProvider.request(.deleteData(params:id)) { result in
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)
                 if let mappedObject = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
-                    self.queryData()
+                    callback()
                 }
             }
         }

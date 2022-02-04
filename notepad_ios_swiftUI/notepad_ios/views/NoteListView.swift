@@ -13,12 +13,12 @@ struct NoteListView : View {
     var body: some View {
         NavigationView {
             List(lblViewModel.noteList) { note in
-                NavigationLink(destination: EditNoteView(refreshViewModel: refreshViewModel, note: note)) {
-                    NoteRowView(note: note,lblViewModel: lblViewModel)
+                NavigationLink(destination: EditNoteView(note: note, lblViewModel: lblViewModel)) {
+                    NoteRowView(note: note, lblViewModel: lblViewModel)
                 }
             }
             .navigationBarTitle(Text("记事本-蓝不蓝编程"), displayMode: .inline)
-            .navigationBarItems(trailing: NavigationLink(destination: AddNoteView(refreshViewModel:refreshViewModel)) {
+            .navigationBarItems(trailing: NavigationLink(destination: AddNoteView(lblViewModel: lblViewModel)) {
                 Text("新建")
             })
         }.sheet(isPresented: $isLoginViewPresented, content: {
@@ -49,7 +49,9 @@ struct NoteListView : View {
                 Text(note.content)
             }.contextMenu {
                 Button {
-                    self.lblViewModel.deleteData(id: note.id)
+                    self.lblViewModel.deleteData(id: note.id){
+                        lblViewModel.queryData()
+                    }
                 } label: {
                     Label("删除", systemImage: "trash")
                 }

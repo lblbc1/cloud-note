@@ -8,8 +8,8 @@ import SwiftyJSON
 import HandyJSON
 
 struct AddNoteView: View {
-    var refreshViewModel: RefreshViewModel
     @State var text: String = ""
+    var lblViewModel: LblViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -25,19 +25,9 @@ struct AddNoteView: View {
     }
     
     private func saveNote(){
-        let params = [
-            "content": text
-        ]
-        
-        LblProvider.request(.addData(params:params)) { result in
-            if case let .success(response) = result {
-                let data = try? response.mapJSON()
-                let json = JSON(data!)
-                if let mappedObject = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
-                    refreshViewModel.shouldRefresh = true
-                    goBack()
-                }
-            }
+        lblViewModel.addData(content: text){
+            lblViewModel.queryData()
+            goBack()
         }
     }
     private func goBack()
@@ -46,11 +36,11 @@ struct AddNoteView: View {
     }
 }
 
-struct AddNoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            AddNoteView(refreshViewModel:RefreshViewModel())
-        }
-        .previewLayout(.fixed(width: 300, height: 50))
-    }
-}
+//struct AddNoteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            AddNoteView(refreshViewModel:RefreshViewModel())
+//        }
+//        .previewLayout(.fixed(width: 300, height: 50))
+//    }
+//}

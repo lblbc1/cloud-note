@@ -8,17 +8,16 @@ import SwiftyJSON
 import HandyJSON
 
 struct EditNoteView: View {
-    var refreshViewModel: RefreshViewModel
     var note: Note
+    var lblViewModel: LblViewModel
     private var text: State<String>
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    init(refreshViewModel: RefreshViewModel,note: Note) {
-        self.refreshViewModel = refreshViewModel
+    init(note: Note,lblViewModel: LblViewModel) {
         self.note = note
+        self.lblViewModel = lblViewModel
         self.text = .init(initialValue: note.content)
     }
-    
     
     var body: some View {
         VStack {
@@ -33,20 +32,9 @@ struct EditNoteView: View {
     }
     
     private func saveNote(){
-        let params = [
-            "id": note.id,
-            "content": self.text.wrappedValue
-        ]
-    
-        LblProvider.request(.modifyData(params:params)) { result in
-            if case let .success(response) = result {
-                let data = try? response.mapJSON()
-                let json = JSON(data!)
-                if let mappedObject = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
-                    refreshViewModel.shouldRefresh = true
-                    goBack()
-                }
-            }
+        lblViewModel.modifyData(id:note.id, content: self.text.wrappedValue){
+            lblViewModel.queryData()
+            goBack()
         }
     }
     private func goBack()
