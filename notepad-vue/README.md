@@ -12,6 +12,3 @@ yarn serve
 
 登录：
 http://localhost:8090/#/note/login
-
-注册：
-
