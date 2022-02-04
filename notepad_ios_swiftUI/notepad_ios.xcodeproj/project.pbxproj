@@ -26,7 +26,6 @@
 		C49A417427429B9C00F4714C /* NoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A417327429B9C00F4714C /* NoteData.swift */; };
 		C49A417627429D2700F4714C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A417527429D2700F4714C /* UserData.swift */; };
 		C49A417827429E0700F4714C /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A417727429E0700F4714C /* NoteListView.swift */; };
-		C49A417A27429E9100F4714C /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A417927429E9100F4714C /* NoteDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +49,6 @@
 		C49A417327429B9C00F4714C /* NoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteData.swift; sourceTree = "<group>"; };
 		C49A417527429D2700F4714C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		C49A417727429E0700F4714C /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
-		C49A417927429E9100F4714C /* NoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailView.swift; sourceTree = "<group>"; };
 		E19BC134D76FBAD0B350DF89 /* Pods-notepad_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notepad_ios.debug.xcconfig"; path = "Target Support Files/Pods-notepad_ios/Pods-notepad_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		ED5373A045E657457F02463A /* Pods-notepad_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notepad_ios.release.xcconfig"; path = "Target Support Files/Pods-notepad_ios/Pods-notepad_ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,7 +168,6 @@
 				C4613E1A27AC99070041ED20 /* AddNoteView.swift */,
 				C4613E1F27ACF8290041ED20 /* EditNoteView.swift */,
 				C49A417727429E0700F4714C /* NoteListView.swift */,
-				C49A417927429E9100F4714C /* NoteDetailView.swift */,
 				C4163F6E27AA843400D136E0 /* LoginView.swift */,
 			);
 			path = views;
@@ -292,7 +289,6 @@
 			files = (
 				C49A417427429B9C00F4714C /* NoteData.swift in Sources */,
 				C4613E1E27ACF6E20041ED20 /* RefreshViewModel.swift in Sources */,
-				C49A417A27429E9100F4714C /* NoteDetailView.swift in Sources */,
 				C49A416227429AF900F4714C /* notepad_iosApp.swift in Sources */,
 				C4613E2027ACF8290041ED20 /* EditNoteView.swift in Sources */,
 				C4613E1827ABD5690041ED20 /* LoginResp.swift in Sources */,
