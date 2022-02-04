@@ -9,6 +9,7 @@ struct NoteListView : View {
     @EnvironmentObject var userData: UserData
     @StateObject private var lblViewModel = LblViewModel()
     @State private var isLoginViewPresented: Bool = false
+    @StateObject private var rereshObject = RereshObject()
     
     let screnDelegate: UIWindowSceneDelegate? = {
         var uiScreen: UIScene?
@@ -27,7 +28,7 @@ struct NoteListView : View {
                 }
             }
             .navigationBarTitle(Text("记事本-蓝不蓝编程"), displayMode: .inline)
-            .navigationBarItems(trailing: NavigationLink(destination: AddNoteView()) {
+            .navigationBarItems(trailing: NavigationLink(destination: AddNoteView(rereshObject:rereshObject)) {
                 Text("新建")
             })
         }.sheet(isPresented: $isLoginViewPresented, content: {
@@ -41,6 +42,13 @@ struct NoteListView : View {
                     lblViewModel.queryData()
                 }
             }
+            .onChange(of: rereshObject.shouldRefresh, perform: { value in
+                if(value)
+                {
+                    rereshObject.shouldRefresh = false
+                    lblViewModel.queryData()
+                }
+            })
     }
     
     struct NoteRowView: View {
@@ -52,6 +60,10 @@ struct NoteListView : View {
         }
     }
     
+}
+
+class RereshObject: ObservableObject {
+    @Published var shouldRefresh = false
 }
 
 #if DEBUG

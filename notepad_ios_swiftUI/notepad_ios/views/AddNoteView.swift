@@ -8,6 +8,7 @@ import SwiftyJSON
 import HandyJSON
 
 struct AddNoteView: View {
+    var rereshObject: RereshObject
     @State var text: String = ""
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -32,7 +33,8 @@ struct AddNoteView: View {
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)
-                if let mappedObject = JSONDeserializer<LoginResp>.deserializeFrom(json: json.description) { 
+                if let mappedObject = JSONDeserializer<LoginResp>.deserializeFrom(json: json.description) {
+                    rereshObject.shouldRefresh = true
                     goBack()
                 }
             }
@@ -44,11 +46,11 @@ struct AddNoteView: View {
     }
 }
 
-struct AddNoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            AddNoteView()
-        }
-        .previewLayout(.fixed(width: 300, height: 50))
-    }
-}
+//struct AddNoteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            AddNoteView()
+//        }
+//        .previewLayout(.fixed(width: 300, height: 50))
+//    }
+//}
