@@ -37,5 +37,5 @@ DevEco Studio
 # 关于我
 厦门大学计算机专业 | 前华为工程师  
 专注《[零基础学编程系列](https://cxyxy.blog.csdn.net/article/details/121134634)》，包含：Java | 安卓 | 前端 | Flutter | iOS | 小程序 | 鸿蒙  
-全网可关注：**花生皮编程**  
+全网可关注：**蓝不蓝编程**  
 ![](https://img-blog.csdnimg.cn/3a1baf2918e8492ab61fa0600fb43444.png)
