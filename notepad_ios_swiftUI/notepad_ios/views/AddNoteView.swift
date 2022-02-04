@@ -33,7 +33,7 @@ struct AddNoteView: View {
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)
-                if let mappedObject = JSONDeserializer<LoginResp>.deserializeFrom(json: json.description) {
+                if let mappedObject = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
                     refreshViewModel.shouldRefresh = true
                     goBack()
                 }

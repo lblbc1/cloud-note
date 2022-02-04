@@ -10,19 +10,19 @@ import HandyJSON
 struct EditNoteView: View {
     var refreshViewModel: RefreshViewModel
     var note: Note
-    @State var text: String = "7777"
+    private var text: State<String>
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     init(refreshViewModel: RefreshViewModel,note: Note) {
         self.refreshViewModel = refreshViewModel
         self.note = note
-        self.text = "eeeeee"//note.content
+        self.text = .init(initialValue: note.content)
     }
     
     
     var body: some View {
         VStack {
-            TextField("请输入内容...", text: $text)
+            TextField("请输入内容...", text: self.text.projectedValue)
             Spacer()
         }
         .padding()
@@ -35,14 +35,14 @@ struct EditNoteView: View {
     private func saveNote(){
         let params = [
             "id": note.id,
-            "content": text
+            "content": self.text.wrappedValue
         ]
-        
+    
         LblProvider.request(.modifyData(params:params)) { result in
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)
-                if let mappedObject = JSONDeserializer<LoginResp>.deserializeFrom(json: json.description) {
+                if let mappedObject = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
                     refreshViewModel.shouldRefresh = true
                     goBack()
                 }

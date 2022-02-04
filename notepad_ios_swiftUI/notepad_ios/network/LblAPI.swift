@@ -28,7 +28,7 @@ extension LblAPI: TargetType {
         case .login: return "api/login"
         case .queryData: return "note/api/list"
         case .addData: return "note/api/add"
-        case .modifyData: return "note/api/moidify"
+        case .modifyData: return "note/api/modify"
         }
     }
     
