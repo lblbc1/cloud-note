@@ -148,5 +148,85 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD997020-25FC-4CD2-8371-256E37398135"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "notepad_ios/views/EditNoteView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "init(refreshViewModel:note:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A226833-4EC1-4C2D-BC16-581DB6FCB3B2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "notepad_ios/views/EditNoteView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "init(refreshViewModel:note:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "806D2764-F5F7-45A1-B86C-A2A3E771A050"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "notepad_ios/views/EditNoteView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "806D2764-F5F7-45A1-B86C-A2A3E771A050 - 393deca692892f68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "notepad_ios.EditNoteView.body.getter : some"
+                  moduleName = "notepad_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerry/projects/mine/gitee/demos/notepads-cloud/notepad_ios_swiftUI/notepad_ios/views/EditNoteView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "527">
+               </Location>
+               <Location
+                  uuid = "806D2764-F5F7-45A1-B86C-A2A3E771A050 - d5a8817a677a5d29"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.TextField&lt;SwiftUI.Text&gt;, SwiftUI.Spacer)&gt; in notepad_ios.EditNoteView.body.getter : some"
+                  moduleName = "notepad_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jerry/projects/mine/gitee/demos/notepads-cloud/notepad_ios_swiftUI/notepad_ios/views/EditNoteView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "538">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

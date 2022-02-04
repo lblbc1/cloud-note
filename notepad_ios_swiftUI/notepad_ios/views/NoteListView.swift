@@ -22,7 +22,7 @@ struct NoteListView : View {
     var body: some View {
         NavigationView {
             List(lblViewModel.noteList) { note in
-                NavigationLink(destination: NoteDetailView(note: note)
+                NavigationLink(destination: EditNoteView(refreshViewModel: refreshViewModel, note: note)
                                 .environmentObject(self.userData)) {
                     NoteRowView(note: note)
                 }

@@ -17,6 +17,7 @@
 		C4613E1927ABD5690041ED20 /* QueryNoteResp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4613E1727ABD5690041ED20 /* QueryNoteResp.swift */; };
 		C4613E1B27AC99070041ED20 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4613E1A27AC99070041ED20 /* AddNoteView.swift */; };
 		C4613E1E27ACF6E20041ED20 /* RefreshViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4613E1D27ACF6E20041ED20 /* RefreshViewModel.swift */; };
+		C4613E2027ACF8290041ED20 /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4613E1F27ACF8290041ED20 /* EditNoteView.swift */; };
 		C49A416227429AF900F4714C /* notepad_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A416127429AF900F4714C /* notepad_iosApp.swift */; };
 		C49A416627429AFA00F4714C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49A416527429AFA00F4714C /* Assets.xcassets */; };
 		C49A416927429AFA00F4714C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49A416827429AFA00F4714C /* Preview Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		C4613E1727ABD5690041ED20 /* QueryNoteResp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QueryNoteResp.swift; path = network/bean/QueryNoteResp.swift; sourceTree = "<group>"; };
 		C4613E1A27AC99070041ED20 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		C4613E1D27ACF6E20041ED20 /* RefreshViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshViewModel.swift; sourceTree = "<group>"; };
+		C4613E1F27ACF8290041ED20 /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
 		C49A415E27429AF900F4714C /* notepad_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notepad_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49A416127429AF900F4714C /* notepad_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notepad_iosApp.swift; sourceTree = "<group>"; };
 		C49A416527429AFA00F4714C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				C4613E1A27AC99070041ED20 /* AddNoteView.swift */,
+				C4613E1F27ACF8290041ED20 /* EditNoteView.swift */,
 				C49A417727429E0700F4714C /* NoteListView.swift */,
 				C49A417927429E9100F4714C /* NoteDetailView.swift */,
 				C4163F6E27AA843400D136E0 /* LoginView.swift */,
@@ -288,6 +291,7 @@
 				C4613E1E27ACF6E20041ED20 /* RefreshViewModel.swift in Sources */,
 				C49A417A27429E9100F4714C /* NoteDetailView.swift in Sources */,
 				C49A416227429AF900F4714C /* notepad_iosApp.swift in Sources */,
+				C4613E2027ACF8290041ED20 /* EditNoteView.swift in Sources */,
 				C4613E1827ABD5690041ED20 /* LoginResp.swift in Sources */,
 				C4163F6927AA7B5000D136E0 /* LblAPI.swift in Sources */,
 				C4163F7127AA910500D136E0 /* LoginManager.swift in Sources */,
