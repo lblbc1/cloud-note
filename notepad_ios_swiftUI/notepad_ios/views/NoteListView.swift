@@ -22,7 +22,7 @@ struct NoteListView : View {
         NavigationView {
             List(lblViewModel.noteList) { note in
                 NavigationLink(destination: EditNoteView(refreshViewModel: refreshViewModel, note: note)) {
-                    NoteRowView(note: note)
+                    NoteRowView(note: note,lblViewModel: lblViewModel)
                 }
             }
             .navigationBarTitle(Text("记事本-蓝不蓝编程"), displayMode: .inline)
@@ -51,9 +51,16 @@ struct NoteListView : View {
     
     struct NoteRowView: View {
         var note: Note
+        var lblViewModel: LblViewModel
         var body: some View {
             HStack {
                 Text(note.content)
+            }.contextMenu {
+                Button {
+                    self.lblViewModel.deleteData(id: note.id)
+                } label: {
+                    Label("删除", systemImage: "trash")
+                }
             }
         }
     }

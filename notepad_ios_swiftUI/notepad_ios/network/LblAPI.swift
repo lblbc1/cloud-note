@@ -16,6 +16,7 @@ enum LblAPI {
     case queryData
     case addData(params: [String:Any])
     case modifyData(params: [String:Any])
+    case deleteData(params:String)
 }
 
 extension LblAPI: TargetType {
@@ -29,6 +30,7 @@ extension LblAPI: TargetType {
         case .queryData: return "note/api/list"
         case .addData: return "note/api/add"
         case .modifyData: return "note/api/modify"
+        case .deleteData(let params): return "note/api/del/"+params
         }
     }
     
@@ -36,7 +38,7 @@ extension LblAPI: TargetType {
         switch self {
         case .login,.addData,.modifyData:
             return .post
-        case .queryData:
+        case .queryData,.deleteData:
             return .get
         }
     }
@@ -45,7 +47,7 @@ extension LblAPI: TargetType {
         switch self {
         case .login(let params),.addData(let params),.modifyData(let params):
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
-        case .queryData:
+        case .queryData,.deleteData:
             return .requestPlain
         }
     }

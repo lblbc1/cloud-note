@@ -21,4 +21,18 @@ class LblViewModel: ObservableObject {
             }
         }
     }
+    
+    func deleteData(id:String)
+    {
+        LblProvider.request(.deleteData(params:id)) { result in
+            if case let .success(response) = result {
+                let data = try? response.mapJSON()
+                let json = JSON(data!)
+                if let mappedObject = JSONDeserializer<CommonResp>.deserializeFrom(json: json.description) {
+                    self.queryData()
+                }
+            }
+        }
+    }
+    
 }
