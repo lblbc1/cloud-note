@@ -14,7 +14,7 @@ Page({
   },
   queryNote(noteId) {
     let _this = this
-    http.get('note/api/query/' + noteId, '',
+    http.get('note/query/' + noteId, '',
       function (resp) {
         _this.setData({
           noteId: noteId,
@@ -28,7 +28,7 @@ Page({
       id: this.data.noteId,
       content: e.detail.value.content,
     }
-    http.post('note/api/modify', params,
+    http.post('note/modify', params,
       function (resp) {
         wx.navigateBack({
           delta: 0,

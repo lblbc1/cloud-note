@@ -17,7 +17,7 @@ Page({
   },
   getNoteList() {
     let _this = this
-    http.get('note/api/list', '',
+    http.get('note/list', '',
       function (resp) {
         _this.setData({
           dataList: resp.data
@@ -49,7 +49,7 @@ Page({
   },
   deleteNote(noteId) {
     let _this = this
-    http.get('note/api/del/' + noteId, '',
+    http.get('note/del/' + noteId, '',
       function (resp) {
         _this.getNoteList()
       },

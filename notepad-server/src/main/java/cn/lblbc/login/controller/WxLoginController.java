@@ -26,7 +26,7 @@ import java.util.Map;
  */
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class WxLoginController {
 
     public static final String APPID = "wx7b05378f34424e99"; //申请小程序的AppId
@@ -39,7 +39,6 @@ public class WxLoginController {
     private AuthService authService;
 
     public static final String DEFAULT_PASSWORD = "123456";
-
 
     /**
      * 登录接口

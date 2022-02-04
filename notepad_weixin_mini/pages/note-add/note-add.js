@@ -17,7 +17,7 @@ Page({
     var params = {
       content: e.detail.value.content,
     }
-    http.post('note/api/add', params,
+    http.post('note/add', params,
       function (resp) {
         wx.navigateBack({
           delta: 0,
