@@ -10,14 +10,6 @@ struct NoteListView : View {
     @State private var isLoginViewPresented: Bool = false
     @StateObject private var refreshViewModel = RefreshViewModel()
     
-    let screnDelegate: UIWindowSceneDelegate? = {
-        var uiScreen: UIScene?
-        UIApplication.shared.connectedScenes.forEach { (screen) in
-            uiScreen = screen
-        }
-        return (uiScreen?.delegate as? UIWindowSceneDelegate)
-    }()
-    
     var body: some View {
         NavigationView {
             List(lblViewModel.noteList) { note in
