@@ -96,6 +96,17 @@
 			name = bean;
 			sourceTree = "<group>";
 		};
+		C4613E1C27ACF50E0041ED20 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C49A417327429B9C00F4714C /* NoteData.swift */,
+				C4163F7027AA910500D136E0 /* LoginManager.swift */,
+				C4163F6A27AA7B5900D136E0 /* LblViewModel.swift */,
+				C49A417527429D2700F4714C /* UserData.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		C49A415527429AF900F4714C = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +128,7 @@
 		C49A416027429AF900F4714C /* notepad_ios */ = {
 			isa = PBXGroup;
 			children = (
+				C4613E1C27ACF50E0041ED20 /* viewModel */,
 				C4163F6727AA7B4200D136E0 /* newwork */,
 				C49A417027429B2700F4714C /* views */,
 				C49A416F27429B1F00F4714C /* models */,
@@ -138,11 +150,7 @@
 		C49A416F27429B1F00F4714C /* models */ = {
 			isa = PBXGroup;
 			children = (
-				C4163F6A27AA7B5900D136E0 /* LblViewModel.swift */,
 				C49A417127429B4600F4714C /* Note.swift */,
-				C49A417327429B9C00F4714C /* NoteData.swift */,
-				C49A417527429D2700F4714C /* UserData.swift */,
-				C4163F7027AA910500D136E0 /* LoginManager.swift */,
 				C4163F7227AA919400D136E0 /* UserInfo.swift */,
 			);
 			path = models;
