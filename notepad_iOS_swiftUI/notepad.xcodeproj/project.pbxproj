@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C85CB1488A668157BBBF273 /* Pods_notepad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B56A5DB88A51A68DBE754E /* Pods_notepad.framework */; };
 		C4DED1A127AD3C230010E271 /* notepadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DED1A027AD3C230010E271 /* notepadApp.swift */; };
-		C4DED1A327AD3C230010E271 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DED1A227AD3C230010E271 /* ContentView.swift */; };
 		C4DED1A527AD3C240010E271 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4DED1A427AD3C240010E271 /* Assets.xcassets */; };
 		C4DED1A827AD3C240010E271 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4DED1A727AD3C240010E271 /* Preview Assets.xcassets */; };
 		C4DED1B827AD3D270010E271 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DED1B427AD3D270010E271 /* LoginView.swift */; };
@@ -33,7 +32,6 @@
 		875537B565E4F79E5BDA82F5 /* Pods-notepad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notepad.debug.xcconfig"; path = "Target Support Files/Pods-notepad/Pods-notepad.debug.xcconfig"; sourceTree = "<group>"; };
 		C4DED19D27AD3C230010E271 /* notepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notepad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4DED1A027AD3C230010E271 /* notepadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notepadApp.swift; sourceTree = "<group>"; };
-		C4DED1A227AD3C230010E271 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C4DED1A427AD3C240010E271 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4DED1A727AD3C240010E271 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C4DED1B427AD3D270010E271 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = views/LoginView.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 				C4DED1B027AD3CDA0010E271 /* network */,
 				C4DED1AF27AD3CD30010E271 /* models */,
 				C4DED1A027AD3C230010E271 /* notepadApp.swift */,
-				C4DED1A227AD3C230010E271 /* ContentView.swift */,
 				C4DED1A427AD3C240010E271 /* Assets.xcassets */,
 				C4DED1A627AD3C240010E271 /* Preview Content */,
 			);
@@ -292,7 +289,6 @@
 				C4DED1CB27AD3D560010E271 /* Note.swift in Sources */,
 				C4DED1BB27AD3D270010E271 /* NoteListView.swift in Sources */,
 				C4DED1C027AD3D3C0010E271 /* LblViewModel.swift in Sources */,
-				C4DED1A327AD3C230010E271 /* ContentView.swift in Sources */,
 				C4DED1A127AD3C230010E271 /* notepadApp.swift in Sources */,
 				C4DED1BA27AD3D270010E271 /* AddNoteView.swift in Sources */,
 				C4DED1D227AD3EE90010E271 /* LoginResp.swift in Sources */,
