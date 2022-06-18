@@ -1,4 +1,4 @@
-package cn.lblbc.bean;
+package cn.lblbc.note.bean;
 
 import lombok.Data;
 

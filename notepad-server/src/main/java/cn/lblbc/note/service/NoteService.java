@@ -1,7 +1,7 @@
-package cn.lblbc.service;
+package cn.lblbc.note.service;
 
-import cn.lblbc.bean.Note;
-import cn.lblbc.mapper.NoteMapper;
+import cn.lblbc.note.bean.Note;
+import cn.lblbc.note.mapper.NoteMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

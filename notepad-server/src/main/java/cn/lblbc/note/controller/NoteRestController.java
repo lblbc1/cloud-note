@@ -1,9 +1,9 @@
-package cn.lblbc.controller;
+package cn.lblbc.note.controller;
 
-import cn.lblbc.bean.Note;
+import cn.lblbc.note.bean.Note;
 import cn.lblbc.login.bean.response.Resp;
 import cn.lblbc.login.utils.JwtUtils;
-import cn.lblbc.service.NoteService;
+import cn.lblbc.note.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

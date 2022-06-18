@@ -1,6 +1,6 @@
-package cn.lblbc.mapper;
+package cn.lblbc.note.mapper;
 
-import cn.lblbc.bean.Note;
+import cn.lblbc.note.bean.Note;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 

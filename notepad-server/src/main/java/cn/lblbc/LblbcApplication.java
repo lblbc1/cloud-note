@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 包含：Java | 安卓 | 前端 | Flutter | iOS | 小程序 | 鸿蒙
  * 公众号：蓝不蓝编程
  */
-@MapperScan({"cn.lblbc.mapper","cn.lblbc.login.mapper"}) //扫描的mapper
+@MapperScan({"cn.lblbc.note.mapper","cn.lblbc.login.mapper"}) //扫描的mapper
 @SpringBootApplication
 public class LblbcApplication {
 
