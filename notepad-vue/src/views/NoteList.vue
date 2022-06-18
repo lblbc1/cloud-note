@@ -73,7 +73,7 @@ export default {
         _this.listLoading = false;
         _this.articleLists = res.data.data;
       }).catch(error => {
-        alert('发布失败');
+        alert('获取笔记列表失败');
         console.log(error);
       });
     },
