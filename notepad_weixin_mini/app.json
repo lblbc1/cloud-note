@@ -7,7 +7,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "记事本-蓝不蓝编程",
+    "navigationBarTitleText": "蓝不蓝记事本",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
