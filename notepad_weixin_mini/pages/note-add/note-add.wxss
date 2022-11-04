@@ -12,8 +12,8 @@
 }
 .note-content{
   background-color: #fff;
-  margin: 10rpx 10rpx 0rpx 10rpx;
-  font-size: 40rpx;
+  margin: 10rpx 10rpx;
+  font-size: 30rpx;
 }
 .note-bottom-wrapper{
   position: fixed;
