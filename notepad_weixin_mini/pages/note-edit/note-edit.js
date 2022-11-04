@@ -10,7 +10,7 @@ Page({
     noteContent: ""
   },
   onLoad: function (option) {
-    this.queryNote(Number(option.id))
+    this.queryNote(option.id)
   },
   methods: {
   },

@@ -10,11 +10,6 @@ Page({
   },
   methods: {
   },
-  onShow: function () {
-    this.setData({
-      noteContent: ""
-    })
-  },
   addNote(e) {
     var params = {
       content: e.detail.value.content,
