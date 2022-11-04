@@ -19,12 +19,7 @@ Page({
     }
     http.post('note/add', params,
       function (resp) {
-        wx.navigateBack({
-          delta: 0,
-          success: (res) => {},
-          fail: (res) => {},
-          complete: (res) => {},
-        })
+        wx.navigateBack()
       },
       function (err) { })
   }
