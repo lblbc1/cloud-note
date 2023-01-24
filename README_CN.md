@@ -7,7 +7,7 @@
 右侧为服务器端版本：Java、Python、Go、PHP、NodeJS
 
 # 前端效果图(以微信小程序为例)
-![](https://img-blog.csdnimg.cn/7aa2d5becde24167b22714c9dfe62017.png)
+![](https://img-blog.csdnimg.cn/d45c7b6e2ef44f548fb30794df70053b.png)
 # 服务器端功能
  1. 注册
  2. 登录
@@ -15,11 +15,10 @@
 
 # 开源地址
 [https://gitee.com/lblbc/cloud-note](https://gitee.com/lblbc/cloud-note)
-![](https://img-blog.csdnimg.cn/2f0b2bfe7c724d32bb3b3c938791c143.png)
+![](https://img-blog.csdnimg.cn/b8697583eb8947b6865814f5f0eb3844.png)
 
 # 关于
 厦门大学计算机专业|华为八年高级工程师     
 专注《零基础学编程系列》  http://lblbc.cn/blog  
 包含：Java | 安卓 | 前端 | Flutter | iOS | 小程序 | 鸿蒙  
 公众号：蓝不蓝编程  
-![](https://img-blog.csdnimg.cn/4c62bfb4cca540b1a26825f2b1a8af7e.png)
