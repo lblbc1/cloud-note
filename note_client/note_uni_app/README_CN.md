@@ -4,7 +4,7 @@
 上述基本涵盖了当前编程开发所有主流语言。  
 左侧为前端版本：安卓、iOS、鸿蒙、Flutter、Vue、uni-app、微信小程序。  
 右侧为服务器端版本：Java、Python、Go、Php、NodeJS
-# 鸿蒙版效果图
+# uni-app效果图
 ![](https://img-blog.csdnimg.cn/19ffb2f1a2454d30af52184c5bf44228.png)
 # 工程截图
 ![](https://img-blog.csdnimg.cn/bb5136d2dcdf46318ca57ad3b9283f39.png)
