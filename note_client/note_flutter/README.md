@@ -6,7 +6,7 @@ Right：Java、Python、Go、PHP、NodeJS
 
 
 # Preview
-![](https://img-blog.csdnimg.cn/7aa2d5becde24167b22714c9dfe62017.png)
+![](https://img-blog.csdnimg.cn/8ef3f622a539463d8b2086a79976c57e.png)
 # Server Features
  1. Register
  2. Login
