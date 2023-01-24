@@ -1,0 +1,35 @@
+{
+	"pages": [
+		{
+			"path": "pages/login",
+			"style": {
+				"navigationBarTitleText": "登录/注册"
+			}
+		},
+		{
+			"path": "pages/note-list",
+			"style": {
+				"navigationBarTitleText": "蓝不蓝云笔记"
+			}
+		},
+		{
+			"path": "pages/note-edit",
+			"style": {
+				"navigationBarTitleText": "编辑"
+			}
+		},
+		{
+			"path": "pages/note-add",
+			"style": {
+				"navigationBarTitleText": "新建"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "蓝不蓝云笔记",
+		"navigationBarBackgroundColor": "#418DF9",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}

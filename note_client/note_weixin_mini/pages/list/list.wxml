@@ -1,0 +1,10 @@
+<view class="page-wrapper ">
+  <block wx:for="{{dataList}}" wx:key="k" wx:for-index="bindex">
+    <view class="note-row" bindtap="viewNote" bindlongpress="longPressed" data-noteid="{{item.id}}">
+      <view class="note-content">{{item.content}}</view>
+    </view>
+  </block>
+  <view bindtap="addNote">
+    <image class="float-img" src="/images/icon-add.png" ></image>
+  </view>
+</view>
