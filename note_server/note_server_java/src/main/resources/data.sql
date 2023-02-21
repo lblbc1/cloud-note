@@ -31,6 +31,6 @@ CREATE TABLE `note` (
   PRIMARY KEY (`id`)
 );
 
-INSERT INTO `note`(user_id,title, content) VALUES (1,'云笔记正文1');
-INSERT INTO `note`(user_id,title, content) VALUES (1,'云笔记正文2');
-INSERT INTO `note`(user_id,title, content) VALUES (1,'云笔记正文3');
+INSERT INTO `note`(user_id, content) VALUES (1,'云笔记正文1');
+INSERT INTO `note`(user_id, content) VALUES (1,'云笔记正文2');
+INSERT INTO `note`(user_id, content) VALUES (1,'云笔记正文3');
