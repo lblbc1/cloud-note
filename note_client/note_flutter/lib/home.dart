@@ -48,19 +48,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                 Icons.home,
                 color: bottomNavigationColor,
               ),
-              title: Text(
-                '首页',
-                style: TextStyle(color: bottomNavigationColor),
-              )),
+              label: '首页'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.person,
                 color: bottomNavigationColor,
               ),
-              title: Text(
-                '我的',
-                style: TextStyle(color: bottomNavigationColor),
-              )),
+              label: '我的'),
         ],
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
