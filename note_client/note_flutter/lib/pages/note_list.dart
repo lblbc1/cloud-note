@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lblbc_flutter/network/http_manager.dart';
 import 'package:lblbc_flutter/pages/edit_note.dart';
@@ -17,7 +16,7 @@ class NoteListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '蓝不蓝云笔记',
+      title: '云笔记-蓝不蓝编程',
       debugShowCheckedModeBanner: false,
       home: NoteListWidget(this.parentContext),
     );
@@ -46,7 +45,7 @@ class _NoteListState extends State<NoteListWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("蓝不蓝云笔记"),
+        title: const Text("云笔记-蓝不蓝编程"),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: gotoAddNotePage,

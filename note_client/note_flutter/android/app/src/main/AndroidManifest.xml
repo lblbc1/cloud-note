@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.lblbc.lblbc_flutter">
    <application
-        android:label="蓝不蓝云笔记"
+        android:label="云笔记-蓝不蓝编程"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
